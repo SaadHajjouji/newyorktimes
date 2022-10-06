@@ -9,13 +9,13 @@ const MainPageHeader = () => {
           <button>
             <FaBars />
           </button>
-          <button>
+          <button className={classes.btnShowSearch}>
             <FaSearch />
           </button>
           <div>
-            <form className={classes.hide}>
-              <input />
-              <button>GO</button>
+            <form className="">
+              <input className={classes.searchInput} placeholder="search" />
+              <button className={classes.btnSearch}>GO</button>
             </form>
           </div>
         </div>
@@ -39,7 +39,7 @@ const MainPageHeader = () => {
           </ul>
         </div>
         <div className={classes.subsLogin}>
-          <a>SUBSCRIBE</a>
+          <a>SUBSCRIBE FOR $0.25/ WEEK</a>
           <a>LOG IN</a>
         </div>
       </section>
