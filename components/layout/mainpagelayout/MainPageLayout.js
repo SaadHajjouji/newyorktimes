@@ -1,12 +1,12 @@
-import React from "react";
+import { Fragment } from "react";
 import MainPageHeader from "./MainPageHeader";
 
 const MainPageLayout = (props) => {
   return (
-    <div>
+    <Fragment>
       <MainPageHeader />
       <main>{props.children}</main>
-    </div>
+    </Fragment>
   );
 };
 
