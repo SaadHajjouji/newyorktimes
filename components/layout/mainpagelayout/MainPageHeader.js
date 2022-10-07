@@ -5,14 +5,17 @@ import classes from "./MainPageHeader.module.scss";
 const MainPageHeader = () => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
-  // clear input on click
+  // state of pressed key in search input
+  const [keyPressed, setKeyPressed] = useState(false);
+  // state of menu click
+  const [showMenu, setShowMenu] = useState(false);
   //input reference
   const searchInputRef = useRef();
   // function that clears the input
-  const [keyPressed, setKeyPressed] = useState(false);
   const clearSearchInput = (e) => {
     e.preventDefault();
     searchInputRef.current.value = "";
+    setKeyPressed(false);
   };
   // checking if a key was pressed to either hide or show the clear button
   const onKeyPress = () => {
@@ -20,16 +23,34 @@ const MainPageHeader = () => {
       ? setKeyPressed(false)
       : setKeyPressed(true);
   };
+  // show input/ delete the clear button / empty input
+  const SearchInputshow = (e) => {
+    clearSearchInput(e);
+    setShowSearchInput(!showSearchInput);
+  };
   return (
     <header>
       <section className={classes.topHeader}>
         <div className={classes.topNavigation}>
-          <button className={classes.btnMenu}>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+            }}
+            className={
+              showMenu
+                ? `${classes.btnMenu} ${classes.backgroundColorClicked}`
+                : classes.btnMenu
+            }
+          >
             <FaBars />
           </button>
           <button
-            className={classes.btnShowSearch}
-            onClick={() => setShowSearchInput(!showSearchInput)}
+            className={
+              showSearchInput
+                ? `${classes.backgroundColorClicked}  ${classes.btnShowSearch}`
+                : classes.btnShowSearch
+            }
+            onClick={SearchInputshow}
           >
             <FaSearch />
           </button>
