@@ -1,6 +1,5 @@
 @mixin headerBtns {
   border-radius: 3px;
-  // vertical-align: middle;
   line-height: 11px;
   font-weight: 700;
 }
@@ -17,15 +16,13 @@
     flex: 1;
     display: flex;
     align-items: center;
-    & > * {
-      margin-right: 7px;
-    }
+
     .searchInputAndClearButton {
-      border-radius: 3px 0px 0px 3px;
       border: 1px solid rgb(190, 190, 190);
       display: inline-block;
       margin-right: 7px;
       border-radius: 3px;
+      width: 15rem;
       .searchInput {
         height: 33px;
         outline: 0;
@@ -33,18 +30,23 @@
         border: none;
       }
       .clearInputbtn {
-        @include headerBtns;
+        color: rgb(190, 190, 190);
+      }
+    }
+    .btnShowSearch,
+    .btnMenu {
+      padding: 8px 9px 9px;
+      height: 33px;
+      color: #333;
+      font-size: 17px;
+      margin-right: 7px;
+      transition: 0.4s ease-in-out;
+      @include headerBtns;
+      &:hover {
+        background-color: #f7f7f7;
       }
     }
 
-    .btnShowSearch {
-      background-color: #f7f7f7;
-      color: black;
-      padding: 8px 9px 9px;
-      height: 33px;
-      border-radius: 3px;
-      @include headerBtns;
-    }
     .btnSearch {
       @include headerBtns;
       padding: 8px 9px 9px;
@@ -64,7 +66,7 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
-      font-size: 10px;
+      font-size: 13px;
       text-align: center;
       li {
         display: inline-block;

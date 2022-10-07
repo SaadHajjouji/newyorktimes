@@ -9,15 +9,22 @@ const MainPageHeader = () => {
   //input reference
   const searchInputRef = useRef();
   // function that clears the input
+  const [keyPressed, setKeyPressed] = useState(false);
   const clearSearchInput = (e) => {
     e.preventDefault();
     searchInputRef.current.value = "";
+  };
+  // checking if a key was pressed to either hide or show the clear button
+  const onKeyPress = () => {
+    searchInputRef.current.value === ""
+      ? setKeyPressed(false)
+      : setKeyPressed(true);
   };
   return (
     <header>
       <section className={classes.topHeader}>
         <div className={classes.topNavigation}>
-          <button>
+          <button className={classes.btnMenu}>
             <FaBars />
           </button>
           <button
@@ -33,12 +40,14 @@ const MainPageHeader = () => {
                   className={classes.searchInput}
                   placeholder="SEARCH"
                   ref={searchInputRef}
+                  onChange={onKeyPress}
                 />
                 <button
                   className={classes.clearInputbtn}
+                  // className={classes.clearInputbtn}
                   onClick={clearSearchInput}
                 >
-                  clear
+                  {keyPressed ? "clear" : ""}
                 </button>
               </div>
               <button className={classes.btnSearch}>GO</button>
