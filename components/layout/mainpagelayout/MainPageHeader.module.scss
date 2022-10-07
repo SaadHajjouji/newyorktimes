@@ -4,9 +4,8 @@
   font-weight: 700;
 }
 
-.topHeader {
+.HeadertopSection {
   margin-top: 5px;
-  padding-inline: 12rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,11 +68,11 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
-      font-size: 13px;
+      font-size: 10px;
       text-align: center;
       li {
         display: inline-block;
-        margin-inline: 5px;
+        margin-inline: 7px;
         cursor: pointer;
       }
     }
@@ -95,7 +94,23 @@
     }
   }
 }
-
+.headerBottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & > * {
+    flex: 1;
+  }
+  .dateAndPaperToday {
+    text-align: start;
+  }
+  .logo {
+    text-align: center;
+  }
+  .weather {
+    text-align: end;
+  }
+}
 // helpers
 .hide {
   display: none;
@@ -103,6 +118,6 @@
 .show {
   display: block;
 }
-.backgroundColorClicked{
+.backgroundColorClicked {
   background-color: #f7f7f7;
 }

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import { FaBars, FaSearch } from "react-icons/fa";
+import { FaArrowDown, FaBars, FaCloud, FaSearch } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
-
+import Image from "next/image";
 const MainPageHeader = () => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
@@ -30,7 +30,7 @@ const MainPageHeader = () => {
   };
   return (
     <header>
-      <section className={classes.topHeader}>
+      <section className={classes.HeadertopSection}>
         <div className={classes.topNavigation}>
           <button
             onClick={() => {
@@ -97,6 +97,34 @@ const MainPageHeader = () => {
         <div className={classes.subsLogin}>
           <a>SUBSCRIBE FOR $0.25/ WEEK</a>
           <a>LOG IN</a>
+        </div>
+      </section>
+      <section className={classes.headerBottomSection}>
+        <div className={classes.dateAndPaperToday}>
+          <span>Friday, October 7, 2022</span>
+          <a>today&apos;s paper</a>
+        </div>
+        <div className={classes.logo}>
+          <Image
+            src={"/images/NewYorkTimes.svg"}
+            alt="newyorktimes logo"
+            height={50}
+            width={300}
+          />
+        </div>
+        <div className={classes.weather}>
+          <div>
+            <FaCloud />
+            <span>22*C</span>
+            <span>18</span>
+            <span>19</span>
+          </div>
+          <div>
+            <span>Dow</span>
+            <span>
+              -3.8% <FaArrowDown />
+            </span>
+          </div>
         </div>
       </section>
     </header>
