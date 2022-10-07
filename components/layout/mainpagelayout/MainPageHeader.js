@@ -1,7 +1,18 @@
-import React from "react";
+import { useRef, useState } from "react";
 import { FaBars, FaSearch } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
+
 const MainPageHeader = () => {
+  // state of search input visibility
+  const [showSearchInput, setShowSearchInput] = useState(false);
+  // clear input on click
+  //input reference
+  const searchInputRef = useRef();
+  // function that clears the input
+  const clearSearchInput = (e) => {
+    e.preventDefault();
+    searchInputRef.current.value = "";
+  };
   return (
     <header>
       <section className={classes.topHeader}>
@@ -9,12 +20,27 @@ const MainPageHeader = () => {
           <button>
             <FaBars />
           </button>
-          <button className={classes.btnShowSearch}>
+          <button
+            className={classes.btnShowSearch}
+            onClick={() => setShowSearchInput(!showSearchInput)}
+          >
             <FaSearch />
           </button>
-          <div>
+          <div className={showSearchInput ? classes.show : classes.hide}>
             <form className="">
-              <input className={classes.searchInput} placeholder="search" />
+              <div className={classes.searchInputAndClearButton}>
+                <input
+                  className={classes.searchInput}
+                  placeholder="SEARCH"
+                  ref={searchInputRef}
+                />
+                <button
+                  className={classes.clearInputbtn}
+                  onClick={clearSearchInput}
+                >
+                  clear
+                </button>
+              </div>
               <button className={classes.btnSearch}>GO</button>
             </form>
           </div>
