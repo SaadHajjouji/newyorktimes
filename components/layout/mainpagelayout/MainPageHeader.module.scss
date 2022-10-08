@@ -98,7 +98,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 3px;
+  border-bottom: 1px solid rgb(230, 227, 227);
   & > * {
     flex: 1;
   }
@@ -114,7 +115,7 @@
     text-align: center;
     img {
       width: 50rem;
-      height: 6.33rem;
+      height: 7.14rem;
     }
   }
   .financeAndWeather {

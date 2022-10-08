@@ -110,8 +110,8 @@ const MainPageHeader = () => {
           <Image
             src={"/images/NewYorkTimes.svg"}
             alt="newyorktimes logo"
-            width={608}
-            height={101.28}
+            width={800}
+            height={114.24}
           />
         </div>
         <div className={classes.financeAndWeather}>
