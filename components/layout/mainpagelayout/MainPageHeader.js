@@ -101,29 +101,33 @@ const MainPageHeader = () => {
       </section>
       <section className={classes.headerBottomSection}>
         <div className={classes.dateAndPaperToday}>
-          <span>Friday, October 7, 2022</span>
-          <a>today&apos;s paper</a>
+          <span className={classes.dateToday}>Friday, October 7, 2022</span>
+          <span className={classes.todaypaperlink}>
+            <a>today&apos;s paper</a>
+          </span>
         </div>
         <div className={classes.logo}>
           <Image
             src={"/images/NewYorkTimes.svg"}
             alt="newyorktimes logo"
-            height={50}
-            width={300}
+            width={608}
+            height={101.28}
           />
         </div>
-        <div className={classes.weather}>
-          <div>
-            <FaCloud />
-            <span>22*C</span>
-            <span>18</span>
-            <span>19</span>
-          </div>
-          <div>
-            <span>Dow</span>
-            <span>
-              -3.8% <FaArrowDown />
-            </span>
+        <div className={classes.financeAndWeather}>
+          <div className={classes.sectionWrapper}>
+            <div className={classes.weatherInfo}>
+              <FaCloud />
+              <span>22°C</span>
+              <span>18°</span>
+              <span>19°</span>
+            </div>
+            <div className={classes.financeInfo}>
+              <span>Dow</span>
+              <span>
+                -3.8% <FaArrowDown />
+              </span>
+            </div>
           </div>
         </div>
       </section>

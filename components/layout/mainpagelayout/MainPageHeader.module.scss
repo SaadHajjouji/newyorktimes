@@ -98,17 +98,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 5px;
   & > * {
     flex: 1;
   }
   .dateAndPaperToday {
     text-align: start;
+    font-size: 12px;
+    .dateToday {
+      font-weight: 700;
+      display: block;
+    }
   }
   .logo {
     text-align: center;
+    img {
+      width: 50rem;
+      height: 6.33rem;
+    }
   }
-  .weather {
+  .financeAndWeather {
     text-align: end;
+    vertical-align: middle;
+    .sectionWrapper {
+      width: 6rem;
+      margin-left: auto;
+      .weatherInfo {
+        font-size: 11px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        :nth-child(1),
+        :nth-child(2) {
+          font-weight: 500;
+          font-size: 13px;
+        }
+      }
+      .financeInfo {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+      }
+    }
   }
 }
 // helpers
