@@ -3,6 +3,8 @@ import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
 import SearchInput from "../../ui/SearchInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 const MainPageHeader = () => {
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
@@ -24,9 +26,11 @@ const MainPageHeader = () => {
     setKeyPressed(false);
   };
   // state of side navigation
-  const [showSideNav, setshowSideNav] = useState(false);
+  const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
+  // mobile navigation
+  const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
   return (
-    <header onClickCapture={() => setshowSideNav(false)}>
+    <header onClickCapture={() => setshowSideNavDesktop(false)}>
       <section className={classes.desktopHeader}>
         <div className={classes.HeadertopSection}>
           <div className={classes.topNavigation}>
@@ -34,13 +38,9 @@ const MainPageHeader = () => {
               onClick={() => {
                 setShowMenu(!showMenu);
               }}
-              className={
-                showMenu
-                  ? `${classes.btnMenu} ${classes.backgroundColorClicked}`
-                  : classes.btnMenu
-              }
+              className={showMenu ? `${classes.btnMenu} ` : classes.btnMenu}
             >
-              <FaBars onClick={() => setshowSideNav(true)} />
+              <FaBars onClick={() => setshowSideNavDesktop(true)} />
             </button>
             <button
               className={
@@ -85,7 +85,7 @@ const MainPageHeader = () => {
             <a>LOG IN</a>
           </div>
         </div>
-        <div className={classes.headerBottomSection}>
+        <div className={classes.HeaderBottomSection}>
           <div className={classes.dateAndPaperToday}>
             <span className={classes.dateToday}>Friday, October 7, 2022</span>
             <span className={classes.todaypaperlink}>
@@ -96,8 +96,8 @@ const MainPageHeader = () => {
             <Image
               src={"/images/NewYorkTimes.svg"}
               alt="newyorktimes logo"
-              width={800}
-              height={114.24}
+              width={400}
+              height={57.14}
             />
           </div>
           <div className={classes.financeAndWeather}>
@@ -120,7 +120,7 @@ const MainPageHeader = () => {
       </section>
       <section className={classes.mobileHeader}>
         <div className={classes.HeaderTopSectionPhone}>
-          <FaBars />
+          <FaBars onClick={() => setShowMobileNavigation(true)} />
           <Image
             src={"/images/NewYorkTimes.svg"}
             alt="newyorktimes logo"
@@ -141,7 +141,7 @@ const MainPageHeader = () => {
       </section>
       <nav
         className={
-          showSideNav ? `${classes.DesktopSideNavigation}` : classes.hide
+          showSideNavDesktop ? `${classes.DesktopSideNavigation}` : classes.hide
         }
       >
         <ul>
@@ -151,6 +151,26 @@ const MainPageHeader = () => {
           <li>U.S Politics</li>
           <li>U.S News</li>
         </ul>
+      </nav>
+      <nav
+        className={
+          ShowMobileNavigation ? classes.MobileNavigation : classes.hide
+        }
+      >
+        <div className={classes.navHead}>
+          <div></div>
+          <Image
+            src={"/images/NewYorkTimes.svg"}
+            alt="newyorktimes logo"
+            width={220}
+            height={31.42}
+          />
+          <FontAwesomeIcon
+            className={classes.cancelIcon}
+            icon={faXmark}
+            onClick={() => setShowMobileNavigation(false)}
+          />
+        </div>
       </nav>
     </header>
   );

@@ -23,26 +23,6 @@
     flex: 1;
     display: flex;
     align-items: center;
-
-    // .searchInputAndClearButton {
-    //   border: 1px solid rgb(190, 190, 190);
-    //   display: inline-block;
-    //   margin-right: 7px;
-    //   border-radius: 3px;
-    //   width: 15rem;
-    //   .searchInput {
-    //     height: 33px;
-    //     outline: 0;
-    //     padding-left: 16px;
-    //     border: none;
-    //     &::placeholder {
-    //       font-size: 10px;
-    //     }
-    //   }
-    //   .clearInputbtn {
-    //     color: rgb(190, 190, 190);
-    //   }
-    // }
     .btnShowSearch,
     .btnMenu {
       padding: 8px 9px 9px;
@@ -56,18 +36,6 @@
         background-color: #f7f7f7;
       }
     }
-
-    // .btnSearch {
-    //   @include headerBtns;
-    //   padding: 8px 9px 9px;
-    //   color: #fff;
-    //   background-color: #567b95;
-    //   border: 1px solid #326891;
-    //   font-weight: bold;
-    //   height: 33px;
-    //   padding: 8px 9px 6px;
-    //   font-size: 10px;
-    // }
   }
   // 2nd part of the top header
   .languageSection {
@@ -101,7 +69,7 @@
     }
   }
 }
-.headerBottomSection {
+.HeaderBottomSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -157,7 +125,7 @@
   margin-top: 14px;
 }
 .HeaderBottomSectionPhone {
-  font-size: 10.8px;
+  font-size: 9px;
   display: flex;
   border: 1px solid rgb(228, 225, 225);
   border-left: 0;
@@ -168,6 +136,7 @@
   margin: 11px 0;
   padding: 0.6rem 1rem;
   justify-content: space-between;
+
   @include respond(phone) {
     background-color: rgb(248, 247, 247);
   }
@@ -216,7 +185,27 @@
     }
   }
 }
-
+.MobileNavigation {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  .navHead {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 13px;
+    align-items: center;
+    border-bottom: 1px solid rgb(228, 225, 225);
+    .cancelIcon {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+  }
+}
 // helpers
 .hide {
   display: none;
