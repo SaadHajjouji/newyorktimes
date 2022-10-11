@@ -171,6 +171,14 @@ const MainPageHeader = () => {
             onClick={() => setShowMobileNavigation(false)}
           />
         </div>
+        <section className={classes.MobileNavSection}>
+          <SearchInput
+            clearSearchInput={clearSearchInput}
+            searchInputRef={searchInputRef}
+            keyPressed={keyPressed}
+            setKeyPressed={setKeyPressed}
+          />
+        </section>
       </nav>
     </header>
   );
