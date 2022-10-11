@@ -2,31 +2,26 @@ import { useRef, useState } from "react";
 import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
+import SearchInput from "../../ui/SearchInput";
 const MainPageHeader = () => {
-  // state of search input visibility
-  const [showSearchInput, setShowSearchInput] = useState(false);
-  // state of pressed key in search input
-  const [keyPressed, setKeyPressed] = useState(false);
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
+  // state of search input visibility
+  const [showSearchInput, setShowSearchInput] = useState(false);
   //input reference
   const searchInputRef = useRef();
+  // state of pressed key in search input
+  const [keyPressed, setKeyPressed] = useState(false);
+  // show input/ delete the clear button / empty input
+  const SearchInputshow = (e) => {
+    clearSearchInput(e);
+    setShowSearchInput(!showSearchInput);
+  };
   // function that clears the input
   const clearSearchInput = (e) => {
     e.preventDefault();
     searchInputRef.current.value = "";
     setKeyPressed(false);
-  };
-  // checking if a key was pressed to either hide or show the clear button
-  const onKeyPress = () => {
-    searchInputRef.current.value === ""
-      ? setKeyPressed(false)
-      : setKeyPressed(true);
-  };
-  // show input/ delete the clear button / empty input
-  const SearchInputshow = (e) => {
-    clearSearchInput(e);
-    setShowSearchInput(!showSearchInput);
   };
   // state of side navigation
   const [showSideNav, setshowSideNav] = useState(false);
@@ -58,24 +53,12 @@ const MainPageHeader = () => {
               <FaSearch />
             </button>
             <div className={showSearchInput ? classes.show : classes.hide}>
-              <form className="">
-                <div className={classes.searchInputAndClearButton}>
-                  <input
-                    className={classes.searchInput}
-                    placeholder="SEARCH"
-                    ref={searchInputRef}
-                    onChange={onKeyPress}
-                  />
-                  <button
-                    className={classes.clearInputbtn}
-                    // className={classes.clearInputbtn}
-                    onClick={clearSearchInput}
-                  >
-                    {keyPressed ? "clear" : ""}
-                  </button>
-                </div>
-                <button className={classes.btnSearch}>GO</button>
-              </form>
+              <SearchInput
+                clearSearchInput={clearSearchInput}
+                searchInputRef={searchInputRef}
+                keyPressed={keyPressed}
+                setKeyPressed={setKeyPressed}
+              />
             </div>
           </div>
           <div className={classes.languageSection}>

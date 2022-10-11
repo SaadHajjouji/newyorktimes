@@ -1,0 +1,31 @@
+@import "../../styles/mixins.scss";
+.searchInputAndClearButton {
+  border: 1px solid rgb(190, 190, 190);
+  display: inline-block;
+  margin-right: 7px;
+  border-radius: 3px;
+  width: 15rem;
+  .searchInput {
+    height: 33px;
+    outline: 0;
+    padding-left: 16px;
+    border: none;
+    &::placeholder {
+      font-size: 10px;
+    }
+  }
+  .clearInputbtn {
+    color: rgb(190, 190, 190);
+  }
+}
+.btnSearch {
+  @include headerBtns;
+  padding: 8px 9px 9px;
+  color: #fff;
+  background-color: #567b95;
+  border: 1px solid #326891;
+  font-weight: bold;
+  height: 33px;
+  padding: 8px 9px 6px;
+  font-size: 10px;
+}
