@@ -139,10 +139,19 @@ const MainPageHeader = () => {
           <Image
             src={"/images/NewYorkTimes.svg"}
             alt="newyorktimes logo"
-            width={800}
-            height={114.24}
+            width={220}
+            height={31.42}
           />
           <FaUser />
+        </div>
+        <div className={classes.HeaderBottomSection}>
+          <span className={`${classes.date} ${classes.date1}`}>
+            Friday, October 7, 2022
+          </span>
+          <span className={`${classes.date} ${classes.date2}`}>
+            Friday, October 7, 2022
+          </span>
+          <a>SUBSCRIBE FOR $0.25/WEEK</a>
         </div>
       </section>
     </header>
