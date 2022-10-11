@@ -4,7 +4,52 @@
   font-weight: 700;
 }
 
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint==minPhone {
+    @media (min-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint==tab-port {
+    @media (max-width: 56.25em) {
+      // 900px
+      @content;
+    }
+  }
+  @if $breakpoint==tab-land {
+    @media (max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  }
+  @if $breakpoint==big-desktop {
+    @media (min-width: 95em) {
+      // 1800px
+      @content;
+    }
+  }
+}
+.webHeader {
+  @include respond(tab-land) {
+    display: none;
+  }
+}
+.mobileHeader {
+  @include respond(minPhone) {
+    display: none;
+  }
+}
+
 .HeadertopSection {
+  // @include respond(tab-land) {
+  //   display: none;
+  // }
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
@@ -95,6 +140,9 @@
   }
 }
 .headerBottomSection {
+  // @include respond(tab-land) {
+  //   display: none;
+  // }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,6 +191,17 @@
     }
   }
 }
+.HeaderTopSectionPhone {
+  // @include respond(minPhone) {
+  //   display: none;
+  // }
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 100%;
+  }
+}
+
 // helpers
 .hide {
   display: none;

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { FaArrowDown, FaBars, FaCloud, FaSearch } from "react-icons/fa";
+import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
 const MainPageHeader = () => {
@@ -30,105 +30,119 @@ const MainPageHeader = () => {
   };
   return (
     <header>
-      <section className={classes.HeadertopSection}>
-        <div className={classes.topNavigation}>
-          <button
-            onClick={() => {
-              setShowMenu(!showMenu);
-            }}
-            className={
-              showMenu
-                ? `${classes.btnMenu} ${classes.backgroundColorClicked}`
-                : classes.btnMenu
-            }
-          >
-            <FaBars />
-          </button>
-          <button
-            className={
-              showSearchInput
-                ? `${classes.backgroundColorClicked}  ${classes.btnShowSearch}`
-                : classes.btnShowSearch
-            }
-            onClick={SearchInputshow}
-          >
-            <FaSearch />
-          </button>
-          <div className={showSearchInput ? classes.show : classes.hide}>
-            <form className="">
-              <div className={classes.searchInputAndClearButton}>
-                <input
-                  className={classes.searchInput}
-                  placeholder="SEARCH"
-                  ref={searchInputRef}
-                  onChange={onKeyPress}
-                />
-                <button
-                  className={classes.clearInputbtn}
-                  // className={classes.clearInputbtn}
-                  onClick={clearSearchInput}
-                >
-                  {keyPressed ? "clear" : ""}
-                </button>
-              </div>
-              <button className={classes.btnSearch}>GO</button>
-            </form>
+      <section className={classes.webHeader}>
+        <div className={classes.HeadertopSection}>
+          <div className={classes.topNavigation}>
+            <button
+              onClick={() => {
+                setShowMenu(!showMenu);
+              }}
+              className={
+                showMenu
+                  ? `${classes.btnMenu} ${classes.backgroundColorClicked}`
+                  : classes.btnMenu
+              }
+            >
+              <FaBars />
+            </button>
+            <button
+              className={
+                showSearchInput
+                  ? `${classes.backgroundColorClicked}  ${classes.btnShowSearch}`
+                  : classes.btnShowSearch
+              }
+              onClick={SearchInputshow}
+            >
+              <FaSearch />
+            </button>
+            <div className={showSearchInput ? classes.show : classes.hide}>
+              <form className="">
+                <div className={classes.searchInputAndClearButton}>
+                  <input
+                    className={classes.searchInput}
+                    placeholder="SEARCH"
+                    ref={searchInputRef}
+                    onChange={onKeyPress}
+                  />
+                  <button
+                    className={classes.clearInputbtn}
+                    // className={classes.clearInputbtn}
+                    onClick={clearSearchInput}
+                  >
+                    {keyPressed ? "clear" : ""}
+                  </button>
+                </div>
+                <button className={classes.btnSearch}>GO</button>
+              </form>
+            </div>
+          </div>
+          <div className={classes.languageSection}>
+            <ul className={classes.languages}>
+              <li>
+                <a>U.S.</a>
+              </li>
+              <li>
+                <a>INTERNATIONAL</a>
+              </li>
+              <li>
+                <a>CANADA</a>
+              </li>
+              <li>
+                <a>ESPAÑOL</a>
+              </li>
+              <li>
+                <a>中文</a>
+              </li>
+            </ul>
+          </div>
+          <div className={classes.subsLogin}>
+            <a>SUBSCRIBE FOR $0.25/ WEEK</a>
+            <a>LOG IN</a>
           </div>
         </div>
-        <div className={classes.languageSection}>
-          <ul className={classes.languages}>
-            <li>
-              <a>U.S.</a>
-            </li>
-            <li>
-              <a>INTERNATIONAL</a>
-            </li>
-            <li>
-              <a>CANADA</a>
-            </li>
-            <li>
-              <a>ESPAÑOL</a>
-            </li>
-            <li>
-              <a>中文</a>
-            </li>
-          </ul>
-        </div>
-        <div className={classes.subsLogin}>
-          <a>SUBSCRIBE FOR $0.25/ WEEK</a>
-          <a>LOG IN</a>
+        <div className={classes.headerBottomSection}>
+          <div className={classes.dateAndPaperToday}>
+            <span className={classes.dateToday}>Friday, October 7, 2022</span>
+            <span className={classes.todaypaperlink}>
+              <a>today&apos;s paper</a>
+            </span>
+          </div>
+          <div className={classes.logo}>
+            <Image
+              src={"/images/NewYorkTimes.svg"}
+              alt="newyorktimes logo"
+              width={800}
+              height={114.24}
+            />
+          </div>
+          <div className={classes.financeAndWeather}>
+            <div className={classes.sectionWrapper}>
+              <div className={classes.weatherInfo}>
+                <FaCloud />
+                <span>22°C</span>
+                <span>18°</span>
+                <span>19°</span>
+              </div>
+              <div className={classes.financeInfo}>
+                <span>Dow</span>
+                <span>
+                  -3.8% <FaArrowDown />
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section className={classes.headerBottomSection}>
-        <div className={classes.dateAndPaperToday}>
-          <span className={classes.dateToday}>Friday, October 7, 2022</span>
-          <span className={classes.todaypaperlink}>
-            <a>today&apos;s paper</a>
-          </span>
-        </div>
-        <div className={classes.logo}>
+      <section className={classes.mobileHeader}>
+        <div className={classes.HeaderTopSectionPhone}>
+          <FaBars />
           <Image
             src={"/images/NewYorkTimes.svg"}
             alt="newyorktimes logo"
             width={800}
             height={114.24}
           />
-        </div>
-        <div className={classes.financeAndWeather}>
-          <div className={classes.sectionWrapper}>
-            <div className={classes.weatherInfo}>
-              <FaCloud />
-              <span>22°C</span>
-              <span>18°</span>
-              <span>19°</span>
-            </div>
-            <div className={classes.financeInfo}>
-              <span>Dow</span>
-              <span>
-                -3.8% <FaArrowDown />
-              </span>
-            </div>
-          </div>
+          <FaUser />
         </div>
       </section>
     </header>
