@@ -31,7 +31,7 @@ const MainPageHeader = () => {
   // state of side navigation
   const [showSideNav, setshowSideNav] = useState(false);
   return (
-    <header>
+    <header onClickCapture={() => setshowSideNav(false)}>
       <section className={classes.desktopHeader}>
         <div className={classes.HeadertopSection}>
           <div className={classes.topNavigation}>
@@ -45,7 +45,7 @@ const MainPageHeader = () => {
                   : classes.btnMenu
               }
             >
-              <FaBars onClick={() => setshowSideNav(!showSideNav)} />
+              <FaBars onClick={() => setshowSideNav(true)} />
             </button>
             <button
               className={
@@ -162,11 +162,11 @@ const MainPageHeader = () => {
         }
       >
         <ul>
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
+          <li>Home Page</li>
+          <li>World</li>
+          <li>Business</li>
+          <li>U.S Politics</li>
+          <li>U.S News</li>
         </ul>
       </nav>
     </header>

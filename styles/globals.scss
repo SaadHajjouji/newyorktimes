@@ -31,5 +31,12 @@ button {
   cursor: pointer;
 }
 body {
-  padding-inline: 1rem;
+  padding-inline: 3rem;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
 }
