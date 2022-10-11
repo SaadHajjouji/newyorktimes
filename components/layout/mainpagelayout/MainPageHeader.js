@@ -28,9 +28,11 @@ const MainPageHeader = () => {
     clearSearchInput(e);
     setShowSearchInput(!showSearchInput);
   };
+  // state of side navigation
+  const [showSideNav, setshowSideNav] = useState(false);
   return (
     <header>
-      <section className={classes.webHeader}>
+      <section className={classes.desktopHeader}>
         <div className={classes.HeadertopSection}>
           <div className={classes.topNavigation}>
             <button
@@ -43,7 +45,7 @@ const MainPageHeader = () => {
                   : classes.btnMenu
               }
             >
-              <FaBars />
+              <FaBars onClick={() => setshowSideNav(!showSideNav)} />
             </button>
             <button
               className={
@@ -144,7 +146,7 @@ const MainPageHeader = () => {
           />
           <FaUser />
         </div>
-        <div className={classes.HeaderBottomSection}>
+        <div className={classes.HeaderBottomSectionPhone}>
           <span className={`${classes.date} ${classes.date1}`}>
             Friday, October 7, 2022
           </span>
@@ -154,6 +156,19 @@ const MainPageHeader = () => {
           <a>SUBSCRIBE FOR $0.25/WEEK</a>
         </div>
       </section>
+      <nav
+        className={
+          showSideNav ? `${classes.DesktopSideNavigation}` : classes.hide
+        }
+      >
+        <ul>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+          <li>hello</li>
+        </ul>
+      </nav>
     </header>
   );
 };
