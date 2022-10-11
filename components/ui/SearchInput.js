@@ -1,17 +1,24 @@
+import { useState } from "react";
 import classes from "./SearchInput.module.scss";
 
-const SearchInput = ({
-  clearSearchInput,
-  searchInputRef,
-  keyPressed,
-  setKeyPressed,
-}) => {
+const SearchInput = ({ searchInputRef, showSearchInput }) => {
+  // state of pressed key in search input
+  const [keyPressed, setKeyPressed] = useState(false);
   const onKeyPress = () => {
     searchInputRef.current.value === ""
       ? setKeyPressed(false)
       : setKeyPressed(true);
   };
-
+  // function that clears the input
+  const clearSearchInput = (e, inputRef) => {
+    e.preventDefault();
+    inputRef.current.value = "";
+    setKeyPressed(false);
+  };
+  // if (showSearchInput === false) {
+  //   // return (e, searchInputRef) => clearSearchInput(e, searchInputRef);
+  //   return () => setKeyPressed(false);
+  // }
   return (
     <form className="">
       <div className={classes.searchInputAndClearButton}>
@@ -23,8 +30,7 @@ const SearchInput = ({
         />
         <button
           className={classes.clearInputbtn}
-          // className={classes.clearInputbtn}
-          onClick={clearSearchInput}
+          onClick={(e) => clearSearchInput(e, searchInputRef)}
         >
           {keyPressed ? "clear" : ""}
         </button>

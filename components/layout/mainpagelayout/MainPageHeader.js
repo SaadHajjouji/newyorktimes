@@ -11,20 +11,14 @@ const MainPageHeader = () => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
   //input reference
-  const searchInputRef = useRef();
-  // state of pressed key in search input
-  const [keyPressed, setKeyPressed] = useState(false);
+  const searchInputRef1 = useRef();
+  const searchInputRef2 = useRef();
+
   // show input/ delete the clear button / empty input
-  const SearchInputshow = (e) => {
-    clearSearchInput(e);
+  const SearchInputshow = () => {
     setShowSearchInput(!showSearchInput);
   };
-  // function that clears the input
-  const clearSearchInput = (e) => {
-    e.preventDefault();
-    searchInputRef.current.value = "";
-    setKeyPressed(false);
-  };
+
   // state of side navigation
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
   // mobile navigation
@@ -45,7 +39,7 @@ const MainPageHeader = () => {
             <button
               className={
                 showSearchInput
-                  ? `${classes.backgroundColorClicked}  ${classes.btnShowSearch}`
+                  ? `${classes.backgroundColorClicked} ${classes.btnShowSearch}`
                   : classes.btnShowSearch
               }
               onClick={SearchInputshow}
@@ -54,10 +48,8 @@ const MainPageHeader = () => {
             </button>
             <div className={showSearchInput ? classes.show : classes.hide}>
               <SearchInput
-                clearSearchInput={clearSearchInput}
-                searchInputRef={searchInputRef}
-                keyPressed={keyPressed}
-                setKeyPressed={setKeyPressed}
+                searchInputRef={searchInputRef1}
+                showSearchInput={showSearchInput}
               />
             </div>
           </div>
@@ -172,12 +164,7 @@ const MainPageHeader = () => {
           />
         </div>
         <section className={classes.MobileNavSection}>
-          <SearchInput
-            clearSearchInput={clearSearchInput}
-            searchInputRef={searchInputRef}
-            keyPressed={keyPressed}
-            setKeyPressed={setKeyPressed}
-          />
+          <SearchInput searchInputRef={searchInputRef2} />
         </section>
       </nav>
     </header>
