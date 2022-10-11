@@ -14,11 +14,6 @@ const MainPageHeader = () => {
   const searchInputRef1 = useRef();
   const searchInputRef2 = useRef();
 
-  // show input/ delete the clear button / empty input
-  const SearchInputshow = () => {
-    setShowSearchInput(!showSearchInput);
-  };
-
   // state of side navigation
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
   // mobile navigation
@@ -42,7 +37,7 @@ const MainPageHeader = () => {
                   ? `${classes.backgroundColorClicked} ${classes.btnShowSearch}`
                   : classes.btnShowSearch
               }
-              onClick={SearchInputshow}
+              onClick={() => setShowSearchInput(!showSearchInput)}
             >
               <FaSearch />
             </button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./SearchInput.module.scss";
 
 const SearchInput = ({ searchInputRef, showSearchInput }) => {
@@ -15,10 +15,13 @@ const SearchInput = ({ searchInputRef, showSearchInput }) => {
     inputRef.current.value = "";
     setKeyPressed(false);
   };
-  // if (showSearchInput === false) {
-  //   // return (e, searchInputRef) => clearSearchInput(e, searchInputRef);
-  //   return () => setKeyPressed(false);
-  // }
+
+  useEffect(() => {
+    if (showSearchInput === false) {
+      searchInputRef.current.value = "";
+      setKeyPressed(false);
+    }
+  }, [showSearchInput]);
   return (
     <form className="">
       <div className={classes.searchInputAndClearButton}>
