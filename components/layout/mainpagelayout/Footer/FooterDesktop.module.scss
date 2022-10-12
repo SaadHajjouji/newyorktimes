@@ -1,5 +1,10 @@
 @import "../../../../styles/mixins.scss";
 
+.DesktopFooter {
+  @include respond(tab-land) {
+    display: none;
+  }
+}
 .FooterWrapper {
   display: flex;
   gap: 9rem;

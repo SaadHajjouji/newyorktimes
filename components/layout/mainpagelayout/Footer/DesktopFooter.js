@@ -5,7 +5,7 @@ import classes from "./FooterDesktop.module.scss";
 
 const DesktopFooter = () => {
   return (
-    <footer>
+    <footer className={classes.DesktopFooter}>
       <Image
         src={"/images/NewYorkTimes.svg"}
         alt="newyorktimes logo"
