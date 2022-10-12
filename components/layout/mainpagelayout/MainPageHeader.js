@@ -5,6 +5,7 @@ import Image from "next/image";
 import SearchInput from "../../ui/SearchInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Footer";
 const MainPageHeader = () => {
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
@@ -160,6 +161,7 @@ const MainPageHeader = () => {
         </div>
         <section className={classes.MobileNavSection}>
           <SearchInput searchInputRef={searchInputRef2} />
+          <Footer />
         </section>
       </nav>
     </header>

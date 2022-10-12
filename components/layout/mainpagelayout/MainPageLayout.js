@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Footer from "./Footer";
 import MainPageHeader from "./MainPageHeader";
 
 const MainPageLayout = (props) => {
@@ -6,6 +7,7 @@ const MainPageLayout = (props) => {
     <Fragment>
       <MainPageHeader />
       <main>{props.children}</main>
+      <Footer />
     </Fragment>
   );
 };

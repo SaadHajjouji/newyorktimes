@@ -209,7 +209,8 @@
     width: 60%;
     margin: 0 auto;
     margin-top: 1.4rem;
-    :first-child {
+    form,
+    form div {
       width: 100%;
       display: flex;
     }
