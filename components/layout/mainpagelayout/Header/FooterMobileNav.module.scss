@@ -1,0 +1,12 @@
+@import "../../../../styles/mixins.scss";
+
+.Navfooter {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  margin-top: 9px;
+
+  ul {
+    flex: 1;
+  }
+  @include footerContent;
+}

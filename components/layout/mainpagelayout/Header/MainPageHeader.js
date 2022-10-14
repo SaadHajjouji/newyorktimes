@@ -2,10 +2,10 @@ import { useRef, useState } from "react";
 import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
-import SearchInput from "../../ui/SearchInput";
+import SearchInput from "../../../ui/SearchInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./Footer";
+import FooterMobileNav from "./FooterMobileNav";
 const MainPageHeader = () => {
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
@@ -161,7 +161,7 @@ const MainPageHeader = () => {
         </div>
         <section className={classes.MobileNavSection}>
           <SearchInput searchInputRef={searchInputRef2} />
-          <Footer />
+          <FooterMobileNav />
         </section>
       </nav>
     </header>

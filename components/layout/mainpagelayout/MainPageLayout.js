@@ -1,13 +1,15 @@
 import { Fragment } from "react";
-import Footer from "./Footer";
-import MainPageHeader from "./MainPageHeader";
+import DesktopFooter from "./Footer/DesktopFooter";
+import MobileFooter from "./Footer/MobileFooter";
+import MainPageHeader from "./Header/MainPageHeader";
 
 const MainPageLayout = (props) => {
   return (
     <Fragment>
       <MainPageHeader />
       <main>{props.children}</main>
-      <Footer />
+      <DesktopFooter />
+      <MobileFooter />
     </Fragment>
   );
 };

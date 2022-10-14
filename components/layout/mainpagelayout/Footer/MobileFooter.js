@@ -5,6 +5,7 @@ const MobileFooter = () => {
     { title: "News", sections: ["Home Page", "World", "CoronaVirus"] },
     { title: "Arts", sections: ["Today's Arts", "Art & Design", "Books"] },
     { title: "Living", sections: ["Automotive", "Games", "Education"] },
+    { title: "Living", sections: ["Automotive", "Games", "Education"] },
   ];
   return (
     <>
