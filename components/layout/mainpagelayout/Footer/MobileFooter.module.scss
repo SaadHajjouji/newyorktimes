@@ -1,0 +1,28 @@
+@import "../../../../styles/mixins.scss";
+
+.MobileFooter {
+  @include footerContent;
+  @include respond(minPhone) {
+    display: none;
+  }
+  border-top: 0.8px solid rgb(238, 234, 234);
+  border-left: 0;
+  border-right: 0;
+  &:last-of-type {
+    border-bottom: 0.8px solid rgb(238, 234, 234);
+  }
+  h3 {
+    margin: 0;
+    padding: 0.87rem 0rem;
+    cursor: pointer;
+  }
+}
+.zeroHeight {
+  display: none;
+}
+.normalHeight {
+  display: block;
+}
+.colorGrey {
+  color: rgb(185, 184, 184);
+}
