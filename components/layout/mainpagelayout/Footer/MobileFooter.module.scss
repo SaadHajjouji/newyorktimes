@@ -1,10 +1,13 @@
 @import "../../../../styles/mixins.scss";
 
-.MobileFooter {
-  @include footerContent;
+.mobileFooterWrapper {
   @include respond(minPhone) {
     display: none;
   }
+}
+.MobileFooter {
+  @include footerContent;
+
   border-top: 0.8px solid rgb(238, 234, 234);
   border-left: 0;
   border-right: 0;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import classes from "./MobileFooter.module.scss";
 const MobileFooter = () => {
@@ -14,7 +15,13 @@ const MobileFooter = () => {
     } else setElement(title);
   };
   return (
-    <>
+    <div className={classes.mobileFooterWrapper}>
+      <Image
+        src={"/images/NewYorkTimes.svg"}
+        alt="newyorktimes logo"
+        width={200}
+        height={28.5714}
+      />
       {FooterContent.map((content) => (
         <div className={classes.MobileFooter} key={content.title}>
           <h3 onClick={() => showElement(content.title)}>{content.title}</h3>
@@ -31,7 +38,7 @@ const MobileFooter = () => {
           </ul>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
