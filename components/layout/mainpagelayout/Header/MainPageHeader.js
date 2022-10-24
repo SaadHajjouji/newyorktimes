@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import SearchInput from "../../../ui/SearchInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import FooterMobileNav from "./FooterMobileNav";
+import axios from "axios";
 const MainPageHeader = () => {
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
@@ -19,6 +20,34 @@ const MainPageHeader = () => {
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
   // mobile navigation
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
+  // weather data
+  const [weatherData, setweatherData] = useState();
+  useEffect(() => {
+    const baseUrlLoc = `https://api.bigdatacloud.net/data/ip-geolocation?ip=160.176.117.44&localityLanguage=en&key=bdc_59e5045d7142441285371c0cdf4f75e7	`;
+    async function getUserLocation() {
+      try {
+        const { data } = await axios.get(baseUrlLoc);
+        const { latitude, longitude } = data.location;
+        return { lat: latitude, lon: longitude };
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    async function getdata() {
+      try {
+        const { lon, lat } = await getUserLocation();
+        const baseUrlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=815383677fd08e564a844118445203c9&units=metric`;
+        const data = await axios.get(baseUrlWeather);
+
+        setweatherData(data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getdata();
+  }, []);
+  console.log(weatherData);
   return (
     <header onClickCapture={() => setshowSideNavDesktop(false)}>
       <section className={classes.desktopHeader}>
