@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FaArrowDown, FaBars, FaCloud, FaSearch, FaUser } from "react-icons/fa";
+import { FaArrowDown, FaBars, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
 import SearchInput from "../../../ui/SearchInput";
@@ -52,6 +52,13 @@ const MainPageHeader = () => {
   const weatherInfo = weatherData?.main;
   const { temp, temp_max, temp_min } = weatherInfo ? weatherInfo : "";
   const weatherIcon = weatherData?.weather[0].icon;
+  // today's date
+  const todayDate = new Date().toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <header onClickCapture={() => setshowSideNavDesktop(false)}>
@@ -109,7 +116,7 @@ const MainPageHeader = () => {
         </div>
         <div className={classes.HeaderBottomSection}>
           <div className={classes.dateAndPaperToday}>
-            <span className={classes.dateToday}>Friday, October 7, 2022</span>
+            <span className={classes.dateToday}>{todayDate}</span>
             <span className={classes.todaypaperlink}>
               <a>today&apos;s paper</a>
             </span>
@@ -124,14 +131,22 @@ const MainPageHeader = () => {
           </div>
           <div className={classes.financeAndWeather}>
             <div className={classes.sectionWrapper}>
-              <div className={classes.weatherInfo}>
-                <span>
-               ` http://openweathermap.org/img/wn/10d@2x.png`
-                </span>
-                <span>{Math.round(temp)}°C</span>
-                <span>{Math.round(temp_max)}°</span>
-                <span>{Math.round(temp_min)}°</span>
-              </div>
+              {weatherData ? (
+                <div className={classes.weatherInfo}>
+                  <span>
+                    <img
+                      alt="weathericon"
+                      src={`http://openweathermap.org/img/wn/${weatherIcon}.png`}
+                    />
+                  </span>
+                  <span>{Math.round(temp)}°C</span>
+                  <span>{Math.round(temp_max)}°</span>
+                  <span>{Math.round(temp_min)}°</span>
+                </div>
+              ) : (
+                ""
+              )}
+
               <div className={classes.financeInfo}>
                 <span>Dow</span>
                 <span>
