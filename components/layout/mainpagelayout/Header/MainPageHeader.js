@@ -22,6 +22,7 @@ const MainPageHeader = () => {
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
   // weather data
   const [weatherData, setweatherData] = useState();
+  // fetching weather data
   useEffect(() => {
     const baseUrlLoc = `https://api.bigdatacloud.net/data/ip-geolocation?ip=160.176.117.44&localityLanguage=en&key=bdc_59e5045d7142441285371c0cdf4f75e7	`;
     async function getUserLocation() {
@@ -47,7 +48,9 @@ const MainPageHeader = () => {
     }
     getdata();
   }, []);
-  console.log(weatherData);
+  // weather info 
+  const weatherInfo = weatherData?.main;
+  const { temp, temp_max, temp_min } = weatherInfo ? weatherInfo : "";
   return (
     <header onClickCapture={() => setshowSideNavDesktop(false)}>
       <section className={classes.desktopHeader}>
@@ -121,9 +124,9 @@ const MainPageHeader = () => {
             <div className={classes.sectionWrapper}>
               <div className={classes.weatherInfo}>
                 <FaCloud />
-                <span>22°C</span>
-                <span>18°</span>
-                <span>19°</span>
+                <span>{Math.round(temp)}°C</span>
+                <span>{Math.round(temp_max)}°</span>
+                <span>{Math.round(temp_min)}°</span>
               </div>
               <div className={classes.financeInfo}>
                 <span>Dow</span>
