@@ -48,9 +48,11 @@ const MainPageHeader = () => {
     }
     getdata();
   }, []);
-  // weather info 
+  // weather info
   const weatherInfo = weatherData?.main;
   const { temp, temp_max, temp_min } = weatherInfo ? weatherInfo : "";
+  const weatherIcon = weatherData?.weather[0].icon;
+
   return (
     <header onClickCapture={() => setshowSideNavDesktop(false)}>
       <section className={classes.desktopHeader}>
@@ -123,7 +125,9 @@ const MainPageHeader = () => {
           <div className={classes.financeAndWeather}>
             <div className={classes.sectionWrapper}>
               <div className={classes.weatherInfo}>
-                <FaCloud />
+                <span>
+               ` http://openweathermap.org/img/wn/10d@2x.png`
+                </span>
                 <span>{Math.round(temp)}°C</span>
                 <span>{Math.round(temp_max)}°</span>
                 <span>{Math.round(temp_min)}°</span>
