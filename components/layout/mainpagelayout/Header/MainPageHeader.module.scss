@@ -8,7 +8,7 @@
 .mobileHeader {
   height: 5rem;
   @include respond(minPhone) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -115,11 +115,6 @@
           width: 30px;
           margin-left: auto;
         }
-      }
-      .financeInfo {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
       }
     }
   }

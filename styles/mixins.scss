@@ -23,6 +23,12 @@
       @content;
     }
   }
+  @if $breakpoint==normalweb {
+    @media (min-width: 76em) {
+      // 1200px
+      @content;
+    }
+  }
   @if $breakpoint==big-desktop {
     @media (min-width: 95em) {
       // 1800px

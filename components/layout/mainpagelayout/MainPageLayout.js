@@ -8,8 +8,8 @@ const MainPageLayout = (props) => {
     <Fragment>
       <MainPageHeader />
       <main>{props.children}</main>
-      <DesktopFooter />
-      <MobileFooter />
+      {/* <DesktopFooter />
+      <MobileFooter /> */}
     </Fragment>
   );
 };

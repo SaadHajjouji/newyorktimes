@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FaArrowDown, FaBars, FaSearch, FaUser } from "react-icons/fa";
+import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
 import SearchInput from "../../../ui/SearchInput";
@@ -146,13 +146,6 @@ const MainPageHeader = () => {
               ) : (
                 ""
               )}
-
-              <div className={classes.financeInfo}>
-                <span>Dow</span>
-                <span>
-                  -3.8% <FaArrowDown />
-                </span>
-              </div>
             </div>
           </div>
         </div>
@@ -170,10 +163,10 @@ const MainPageHeader = () => {
         </div>
         <div className={classes.HeaderBottomSectionPhone}>
           <span className={`${classes.date} ${classes.date1}`}>
-            Friday, October 7, 2022
+            {todayDate}
           </span>
           <span className={`${classes.date} ${classes.date2}`}>
-            Friday, October 7, 2022
+            {todayDate}
           </span>
           <a>SUBSCRIBE FOR $0.25/WEEK</a>
         </div>

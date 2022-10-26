@@ -1,3 +1,4 @@
+@import "./mixins.scss";
 html,
 body {
   padding: 0;
@@ -31,7 +32,17 @@ button {
   cursor: pointer;
 }
 body {
-  padding-inline: 2rem;
+  padding-inline: 12rem !important;
+
+  @include respond(phone) {
+    padding-inline: 1rem !important;
+  }
+  @include respond(tab-port) {
+    padding-inline: 1rem !important;
+  }
+  @include respond(tab-land) {
+    padding-inline: 1rem !important;
+  }
 }
 ul,
 form {
