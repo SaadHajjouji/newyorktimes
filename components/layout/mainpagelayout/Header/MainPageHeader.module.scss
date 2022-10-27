@@ -37,21 +37,7 @@
       }
     }
   }
-  // 2nd part of the top header
-  .languageSection {
-    flex: 1;
-    .languages {
-      margin: 0;
-      padding: 0;
-      font-size: 10px;
-      text-align: center;
-      li {
-        display: inline-block;
-        margin-inline: 7px;
-        cursor: pointer;
-      }
-    }
-  }
+
   .subsLogin {
     flex: 1;
     font-size: 11px;
@@ -75,9 +61,7 @@
   align-items: center;
   margin-top: 3px;
   border-bottom: 1px solid rgb(230, 227, 227);
-  & > * {
-    flex: 1;
-  }
+
   .dateAndPaperToday {
     text-align: start;
     font-size: 12px;
@@ -87,8 +71,19 @@
     }
   }
   .logo {
+    margin: 0 auto;
+    display: inline-block;
+    align-items: center;
     text-align: center;
+    display: flex;
+    span {
+      display: inline-block;
+      color: rgb(182, 179, 179);
+      font-weight: 500;
+    }
     img {
+      display: inline-block;
+
       width: 50rem;
       height: 7.14rem;
     }

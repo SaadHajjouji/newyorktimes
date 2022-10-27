@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import FooterMobileNav from "./FooterMobileNav";
 import axios from "axios";
+import Navbar from "./Navbar";
 const MainPageHeader = () => {
   // state of menu click
   const [showMenu, setShowMenu] = useState(false);
@@ -90,25 +91,7 @@ const MainPageHeader = () => {
               />
             </div>
           </div>
-          <div className={classes.languageSection}>
-            <ul className={classes.languages}>
-              <li>
-                <a>U.S.</a>
-              </li>
-              <li>
-                <a>INTERNATIONAL</a>
-              </li>
-              <li>
-                <a>CANADA</a>
-              </li>
-              <li>
-                <a>ESPAÑOL</a>
-              </li>
-              <li>
-                <a>中文</a>
-              </li>
-            </ul>
-          </div>
+
           <div className={classes.subsLogin}>
             <a>SUBSCRIBE FOR $0.25/ WEEK</a>
             <a>LOG IN</a>
@@ -128,6 +111,7 @@ const MainPageHeader = () => {
               width={400}
               height={57.14}
             />
+            <span>Lite</span>
           </div>
           <div className={classes.financeAndWeather}>
             <div className={classes.sectionWrapper}>
@@ -159,6 +143,7 @@ const MainPageHeader = () => {
             width={220}
             height={31.42}
           />
+
           <FaUser />
         </div>
         <div className={classes.HeaderBottomSectionPhone}>
@@ -208,6 +193,7 @@ const MainPageHeader = () => {
           <FooterMobileNav />
         </section>
       </nav>
+      <Navbar />
     </header>
   );
 };
