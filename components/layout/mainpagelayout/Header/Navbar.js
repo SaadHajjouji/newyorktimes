@@ -1,5 +1,6 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Navbar.module.scss";
 const Navbar = () => {
   const categories = [
@@ -16,17 +17,18 @@ const Navbar = () => {
     "food",
     "travel",
   ];
+
   return (
     <>
       <div className={classes.desktopNavBar}>
         <ul>
           {categories.map((category) => (
             <li key={category}>
-              <Link href={`/${1}`}>{category}</Link>
+              <Link href={`/categories/${category}`}>{category}</Link>
             </li>
           ))}
         </ul>
-        <hr className={`${classes.line} ${classes.line1}`}/>
+        <hr className={`${classes.line} ${classes.line1}`} />
         <hr className={classes.line} />
       </div>
     </>
