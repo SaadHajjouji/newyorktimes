@@ -1,9 +1,12 @@
+import axios from "axios";
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import MainPageLayout from "../components/layout/mainpagelayout/MainPageLayout";
-import Main from "../components/mainPage/Main";
+import MainPage from "../components/mainPage/MainPage";
 
-export default function Home() {
+export default function Home(props) {
+  const content = props.content;
+
   return (
     <Fragment>
       <Head>
@@ -13,8 +16,19 @@ export default function Home() {
       </Head>
 
       <MainPageLayout>
-        <Main/>
+        <MainPage content={content} />
       </MainPageLayout>
     </Fragment>
   );
+}
+export async function getStaticProps() {
+  const baseUrl =
+    "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=EhgvtA3WE0sRHZeL6sQ8LPFZtn2CtGFz";
+  const data = await axios.get(baseUrl);
+  return {
+    props: {
+      content: data.data,
+    },
+    revalidate: 30,
+  };
 }
