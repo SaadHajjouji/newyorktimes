@@ -1,4 +1,5 @@
 @import "./mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Lora:wght@500&display=swap");
 html,
 body {
   padding: 0;
@@ -53,4 +54,10 @@ p {
 }
 li {
   list-style-type: none;
+}
+h3 {
+  font-family: "Domine";
+}
+p {
+  font-family: "Lora";
 }
