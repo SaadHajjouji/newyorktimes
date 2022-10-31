@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Lora:wght@500&display=swap");
+.generalLayout {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-column-gap: 15px;
+
+  .leftSection {
+    border-right: 1px solid silver;
+    grid-column: span 14;
+    padding-right: 20px;
+  }
+  .rightSection {
+    background-color: lawngreen;
+    margin-left: 5px;
+    grid-column: span 6;
+  }
+}
+
+.worldArticle {
+  .trendingTopic {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 11px;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgb(0, 0, 0);
+    h3 {
+      margin-top: 5px;
+      font-family: "Domine";
+    }
+    p {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #5a5a5a;
+      font-family: "Lora";
+    }
+    .live {
+      color: #d0021b;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    span {
+      display: block;
+    }
+  }
+  .electionsSection {
+    margin-top: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid silver;
+    padding-top: 13px;
+    gap: 8px;
+    h3 {
+      font-size: 14px;
+      color: #000000;
+      font-family: "Lora";
+      &::after {
+        content: "4 min read";
+        display: block;
+        color: grey;
+        font-family: unset;
+        font-weight: lighter;
+      }
+      &:first-child {
+        border-right: 1px solid rgb(192, 192, 192);
+      }
+    }
+  }
+}
