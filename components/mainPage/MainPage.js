@@ -147,7 +147,7 @@ const MainPage = ({ content }) => {
           {opinionData.map((op) => (
             <article key={op.title} className={classes.opinionArticle}>
               <div>
-                <span classes={classes.authorName}>{op.byline.slice(3)}</span>
+                <span className={classes.authorName}>{op.byline.slice(3)}</span>
                 <h5 key={op.title}>{op.title}</h5>
               </div>
               <ImageCaption
