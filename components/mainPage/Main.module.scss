@@ -82,23 +82,30 @@
   padding-top: 1rem;
   margin-top: 1.3rem;
   border-top: 1px solid rgb(0, 0, 0);
-
+  .sectionHeader {
+    font-size: 14px;
+    font-weight: 500;
+  }
   .opinionArticle {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    align-items: flex-start;
+    margin-top: 12px;
     gap: 9px;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     border-bottom: 1px solid $border;
     .authorName {
       color: $p-color;
       font-family: $lora;
       font-weight: 100;
-      font-size: $size-medium;
+      font-size: 13px;
       letter-spacing: 1.2px;
     }
     h5 {
       font-family: $domine;
+      margin-top: 5.3px;
+      font-size: 1rem;
+      @include minread("5 min read");
     }
   }
 }

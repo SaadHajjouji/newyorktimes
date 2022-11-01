@@ -5,29 +5,40 @@ import classes from "./Main.module.scss";
 const MainPage = ({ content }) => {
   const contents = content;
   const globalData = contents.results;
-  const opinionData = globalData.filter((data) => data.section === "opinion");
+  const opinionData = globalData.filter((el) => el.section === "opinion");
   const EntertainmentData = globalData
     .filter(
-      (data) =>
-        data.section === "arts" ||
-        data.section === "style" ||
-        data.section === "sports" ||
-        data.section === "science" ||
-        data.section === "travel" ||
-        data.section === "podcasts"
+      (el) =>
+        el.section === "arts" ||
+        el.section === "style" ||
+        el.section === "sports" ||
+        el.section === "travel" ||
+        el.section === "podcasts"
     )
     .filter((el, i) => i < 3);
-  const worldDataSection = globalData.filter(
-    (data) => data.section === "world"
-  )[0];
-  const worldData = globalData.filter((data) => data.section === "world");
-  const usData = globalData.filter((data) => data.section === "us");
+  const worldDataSection = globalData.filter((el) => el.section === "world")[0];
+  const worldData = globalData.filter((el) => el.section === "world");
+  const usData = globalData.filter((el) => el.section === "us");
+  const climateData = globalData
+    .filter(
+      (el) =>
+        el.section === "briefing" ||
+        el.section === "climate" ||
+        el.subsection === "climate"
+    )
+    .filter((_, i) => i < 1);
+
   const elections = globalData
     .filter(
-      (data) =>
-        data.subsection === "elections" || data.subsection === "politics"
+      (el) => el.subsection === "elections" || el.subsection === "politics"
     )
     .filter((el, i) => i <= 1);
+  const wellnessData = globalData.filter(
+    (el) =>
+      el.section === "well" ||
+      el.section === "parenting" ||
+      el.section === "food"
+  );
   //* *  data for the different sections
   // * * data for the world news featured section
   const featuredWorld = {
@@ -89,8 +100,40 @@ const MainPage = ({ content }) => {
     url: usData[randomObjectIndex].url,
     date: usData[randomObjectIndex].published_date,
   };
-  // * data for the opinion section in the bottom corner
-  console.log(opinionData);
+  // * data for the climate section
+  const climateSection = {
+    title: climateData[0].title,
+    abstract: climateData[0].abstract,
+    image: climateData[0].multimedia[1].url,
+    width: climateData[0].multimedia[1].width,
+    height: climateData[0].multimedia[1].height,
+    caption: climateData[0].multimedia[1].caption,
+    url: climateData[0].url,
+    date: climateData[0].published_date,
+  };
+  const wellnessSection = [
+    {
+      title: wellnessData[0].title,
+      abstract: wellnessData[0].abstract,
+      image: wellnessData[0].multimedia[1].url,
+      width: wellnessData[0].multimedia[1].width,
+      height: wellnessData[0].multimedia[1].height,
+      caption: wellnessData[0].multimedia[1].caption,
+      url: wellnessData[0].url,
+      date: wellnessData[0].published_date,
+    },
+    {
+      title: wellnessData[wellnessData.length - 1].title,
+      abstract: wellnessData[wellnessData.length - 1].abstract,
+      image: wellnessData[wellnessData.length - 1].multimedia[1].url,
+      width: wellnessData[wellnessData.length - 1].multimedia[1].width,
+      height: wellnessData[wellnessData.length - 1].multimedia[1].height,
+      caption: wellnessData[wellnessData.length - 1].multimedia[1].caption,
+      url: wellnessData[wellnessData.length - 1].url,
+      date: wellnessData[wellnessData.length - 1].published_date,
+    },
+  ];
+  console.log(globalData);
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>
@@ -104,7 +147,16 @@ const MainPage = ({ content }) => {
             ))}
           </div>
         </BigArticle>
-        <BigArticle mainFeatured={featuredUs} SecondaryFeatured={usData[0]} />
+        <BigArticle
+          mainFeatured={featuredUs}
+          SecondaryFeatured={usData[usData.length - 1]}
+        />
+
+        <BigArticle mainFeatured={climateSection} SecondaryFeatured={""} />
+        <BigArticle
+          mainFeatured={wellnessSection[0]}
+          SecondaryFeatured={wellnessSection[wellnessSection.length - 1]}
+        />
       </div>
       <div className={classes.rightSection}>
         <div className={classes.EntertainmentSection}>
@@ -143,20 +195,24 @@ const MainPage = ({ content }) => {
           </div>
         </div>
         <div className={classes.opinionSection}>
-          <h4>Opinion</h4>
-          {opinionData.map((op) => (
+          <h4 className={classes.sectionHeader}>Opinion</h4>
+          {opinionData.map((op, i) => (
             <article key={op.title} className={classes.opinionArticle}>
               <div>
                 <span className={classes.authorName}>{op.byline.slice(3)}</span>
                 <h5 key={op.title}>{op.title}</h5>
               </div>
-              <ImageCaption
-                featuredImg={op.multimedia[2].url}
-                caption={op.multimedia[2].caption}
-                alt={op.multimedia[2].caption}
-                width={op.multimedia[2].width}
-                height={op.multimedia[2].height}
-              />
+              {i % 2 === 0 ? (
+                <ImageCaption
+                  featuredImg={op.multimedia[1].url}
+                  caption={op.multimedia[1].caption}
+                  alt={op.multimedia[1].caption}
+                  width={op.multimedia[1].width}
+                  height={op.multimedia[1].height}
+                />
+              ) : (
+                ""
+              )}
             </article>
           ))}
         </div>

@@ -11,9 +11,13 @@ const BigArticle = ({ mainFeatured, SecondaryFeatured, children }) => {
               <h3>{mainFeatured.title}</h3>
               <p>{mainFeatured.abstract}</p>
             </div>
-            <div className={classes.secondHeadline}>
-              <h4>{SecondaryFeatured.title}</h4>
-            </div>
+            {SecondaryFeatured !== "" ? (
+              <div className={classes.secondHeadline}>
+                <h4>{SecondaryFeatured.title}</h4>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <div>
             <ImageCaption
