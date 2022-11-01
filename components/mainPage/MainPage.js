@@ -10,13 +10,17 @@ const MainPage = ({ content }) => {
       (data) =>
         data.section === "arts" ||
         data.section === "style" ||
-        data.section === "sports"
+        data.section === "sports" ||
+        data.section === "science" ||
+        data.section === "travel" ||
+        data.section === "podcasts"
     )
     .filter((el, i) => i < 3);
   const worldDataSection = globalData.filter(
     (data) => data.section === "world"
   )[0];
   const worldData = globalData.filter((data) => data.section === "world");
+
   const usData = globalData.filter((data) => data.section === "us");
   const elections = globalData
     .filter(
@@ -35,6 +39,7 @@ const MainPage = ({ content }) => {
     url: worldDataSection.url,
     date: worldDataSection.published_date,
   };
+
   const featEntertainment = [
     {
       title: EntertainmentData[0].title,
@@ -57,57 +62,83 @@ const MainPage = ({ content }) => {
       date: EntertainmentData[1].published_date,
     },
     {
-      title: EntertainmentData[2].title,
-      abstract: EntertainmentData[2].abstract,
-      image: EntertainmentData[2].multimedia[1].url,
-      width: EntertainmentData[2].multimedia[1].width,
-      height: EntertainmentData[2].multimedia[1].height,
-      caption: EntertainmentData[2].multimedia[1].caption,
-      url: EntertainmentData[2].url,
-      date: EntertainmentData[2].published_date,
+      title: EntertainmentData[2]?.title,
+      abstract: EntertainmentData[2]?.abstract,
+      image: EntertainmentData[2]?.multimedia[1].url,
+      width: EntertainmentData[2]?.multimedia[1].width,
+      height: EntertainmentData[2]?.multimedia[1].height,
+      caption: EntertainmentData[2]?.multimedia[1].caption,
+      url: EntertainmentData[2]?.url,
+      date: EntertainmentData[2]?.published_date,
     },
   ];
 
-  console.log(globalData);
   return (
-    <div>
-      <div className={classes.generalLayout}>
-        <div className={classes.leftSection}>
-          <article className={classes.worldArticle}>
-            <div className={classes.trendingTopic}>
-              <div>
+    <div className={classes.generalLayout}>
+      <div className={classes.leftSection}>
+        <article className={classes.worldArticle}>
+          <div className={classes.trendingTopic}>
+            <div>
+              <div className={classes.mainHeadline}>
                 <span className={classes.live}>LIVE</span>
                 <h3>{featuredWorld.title}</h3>
                 <p>{featuredWorld.abstract}</p>
               </div>
+              <div className={classes.secondHeadline}>
+                <h4>{usData[0].title}</h4>
+              </div>
+            </div>
+            <div>
               <ImageCaption
                 featuredImg={featuredWorld.image}
                 caption={featuredWorld.caption}
+                alt={featuredWorld.caption}
                 width={featuredWorld.width}
                 height={featuredWorld.height}
               />
             </div>
-            <div className={classes.electionsSection}>
-              {elections.map((election) => (
-                <h3 key={election.title}>{election.title}</h3>
-              ))}
-            </div>
+          </div>
+          <div className={classes.electionsSection}>
+            {elections.map((election) => (
+              <h3 key={election.title}>{election.title}</h3>
+            ))}
+          </div>
+        </article>
+      </div>
+      <div className={classes.rightSection}>
+        <div className={classes.EntertainmentSection}>
+          <article className={classes.section1}>
+            <ImageCaption
+              featuredImg={featEntertainment[0].image}
+              caption={featEntertainment[0].caption}
+              alt={featEntertainment[0].caption}
+              width={featEntertainment[0].width}
+              height={featEntertainment[0].height}
+            />
+            <h3>{featEntertainment[0].title}</h3>
+            <p>{featEntertainment[0].abstract}</p>
           </article>
-        </div>
-        <div className={classes.rightSection}>
-          <div className={classes.EntertainmentSection}>
-            <div className={classes.section1}>
+          <div className={classes.miniSectionWrapper}>
+            <article className={classes.section2}>
               <ImageCaption
-                featuredImg={featEntertainment[0].image}
-                caption={featEntertainment[0].caption}
-                width={featEntertainment[0].width}
-                height={featEntertainment[0].height}
+                featuredImg={featEntertainment[1].image}
+                caption={""}
+                alt={featEntertainment[1].caption}
+                width={featEntertainment[1].width}
+                height={featEntertainment[1].height}
               />
-              <h3>{featEntertainment[0].title}</h3>
-              <p>{featEntertainment[0].abstract}</p>
-            </div>
-            <div className={classes.section2}>no</div>
-            <div className={classes.section3}>bye</div>
+              <h3>{featEntertainment[1].title}</h3>
+            </article>
+            <article className={classes.section3}>
+              <ImageCaption
+                featuredImg={featEntertainment[2].image}
+                caption={""}
+                alt={featEntertainment[2].caption}
+                width={featEntertainment[2].width}
+                height={featEntertainment[2].height}
+              />
+              <h3>{featEntertainment[2].title}</h3>
+            </article>
           </div>
         </div>
       </div>

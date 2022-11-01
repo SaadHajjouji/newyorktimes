@@ -1,6 +1,9 @@
+@import "../../styles/mixins.scss";
+
 $p-color: #5a5a5a;
 $border: rgb(192, 192, 192);
-$size-medium: 15px;
+$size-medium: 13.7px;
+
 .generalLayout {
   margin-top: 1.2rem;
   display: grid;
@@ -25,26 +28,38 @@ $size-medium: 15px;
     gap: 11px;
     padding-top: 1.4rem;
     border-top: 1px solid rgb(0, 0, 0);
-    h3 {
-      margin-top: 5px;
-      font-family: "Domine";
-    }
-    p {
-      margin-top: 8px;
-      font-size: $size-medium;
-      color: $p-color;
-      font-family: "Lora";
-    }
-    .live {
-      color: #d0021b;
-      font-size: 13px;
-      font-weight: 700;
-      font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
-      letter-spacing: 1px;
-    }
+    .mainHeadline {
+      h3 {
+        margin-top: 5px;
+        font-family: "Domine";
+      }
+      p {
+        margin-top: 8px;
+        font-size: $size-medium;
+        color: $p-color;
+        font-family: "Lora";
+        @include minread("6 min read");
+      }
+      .live {
+        color: #d0021b;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+        letter-spacing: 1px;
+      }
 
-    span {
-      display: block;
+      span {
+        display: block;
+      }
+    }
+    .secondHeadline {
+      h4 {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 0.8px solid $border;
+        font-size: 15px;
+        @include minread("4 min read");
+      }
     }
   }
   .electionsSection {
@@ -58,17 +73,7 @@ $size-medium: 15px;
       font-size: 14px;
       color: #000000;
       font-family: "Lora";
-      &::after {
-        content: "4 min read";
-        display: block;
-        color: rgb(128, 128, 128);
-        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
-        font-weight: lighter;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 1px;
-        margin-top: 3px;
-      }
+      @include minread("4 min read");
       &:first-child {
         border-right: 1px solid rgb(192, 192, 192);
         padding-right: 1rem;
@@ -82,30 +87,37 @@ $size-medium: 15px;
 .EntertainmentSection {
   padding-top: 1.4rem;
   border-top: 1px solid rgb(0, 0, 0);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "header header"
-    "side content";
-  gap: 1rem;
   .section1 {
-    grid-area: header;
     h3 {
       margin-top: 11px;
       font-weight: 100;
+      letter-spacing: 1.4px;
     }
     p {
       color: $p-color;
       margin-top: 9px;
       font-size: $size-medium;
     }
+    @include minread("6 min read");
   }
-  .section2 {
-    grid-area: side;
-    background-color: aqua;
-  }
-  .section3 {
-    grid-area: content;
-    background-color: bisque;
+  .miniSectionWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border;
+    h3 {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .section2 {
+      border-right: 1px solid $border;
+      padding-right: 1rem;
+      @include minread("6 min read");
+    }
+    .section3 {
+      margin-left: 1rem;
+      @include minread("4 min read");
+    }
   }
 }

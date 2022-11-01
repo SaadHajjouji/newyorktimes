@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import classes from "./ImageCaption.module.scss";
-const ImageCaption = ({ featuredImg, caption, width, height }) => {
+const ImageCaption = ({ featuredImg, caption, width, height,alt }) => {
   return (
     <div>
       <Image
         src={featuredImg}
-        alt={caption}
+        alt={alt}
         loader={() => featuredImg}
         width={width}
         height={height}
