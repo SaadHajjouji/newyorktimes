@@ -1,9 +1,6 @@
 @import "../../styles/mixins.scss";
 
-$p-color: #5a5a5a;
-$border: rgb(192, 192, 192);
-$size-medium: 13.7px;
-
+@import "../../styles/variables.scss";
 .generalLayout {
   margin-top: 1.2rem;
   display: grid;
@@ -20,7 +17,6 @@ $size-medium: 13.7px;
     grid-column: span 6;
   }
 }
-
 
 .EntertainmentSection {
   padding-top: 1.4rem;
@@ -61,23 +57,47 @@ $size-medium: 13.7px;
 }
 
 .electionsSection {
-    margin-top: 1.3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: 1px solid $border;
-    padding-top: 13px;
+  margin-top: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid $border;
+  padding-top: 13px;
 
-    h3 {
-      font-size: 14px;
-      color: #000000;
-      font-family: "Lora";
-      @include minread("4 min read");
-      &:first-child {
-        border-right: 1px solid rgb(192, 192, 192);
-        padding-right: 1rem;
-      }
-      &:nth-child(2) {
-        margin-left: 1rem;
-      }
+  h3 {
+    font-size: 14px;
+    color: #000000;
+    font-family: "Lora";
+    @include minread("4 min read");
+    &:first-child {
+      border-right: 1px solid rgb(192, 192, 192);
+      padding-right: 1rem;
+    }
+    &:nth-child(2) {
+      margin-left: 1rem;
     }
   }
+}
+
+.opinionSection {
+  padding-top: 1rem;
+  margin-top: 1.3rem;
+  border-top: 1px solid rgb(0, 0, 0);
+
+  .opinionArticle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 9px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border;
+    .authorName {
+      color: $p-color;
+      font-family: $lora;
+      font-weight: 100;
+      font-size: $size-medium;
+    }
+    h5 {
+      font-family: $domine;
+    }
+  }
+}

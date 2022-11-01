@@ -8,7 +8,6 @@ const BigArticle = ({ mainFeatured, SecondaryFeatured, children }) => {
         <div className={classes.trendingTopic}>
           <div>
             <div className={classes.mainHeadline}>
-              <span className={classes.live}>LIVE</span>
               <h3>{mainFeatured.title}</h3>
               <p>{mainFeatured.abstract}</p>
             </div>

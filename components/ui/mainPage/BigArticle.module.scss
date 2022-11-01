@@ -5,6 +5,7 @@ $border: rgb(192, 192, 192);
 $size-medium: 13.7px;
 
 .bigArticle {
+  margin-bottom: 2rem;
   .trendingTopic {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -23,13 +24,13 @@ $size-medium: 13.7px;
         font-family: "Lora";
         @include minread("6 min read");
       }
-      .live {
-        color: #d0021b;
-        font-size: 13px;
-        font-weight: 700;
-        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
-        letter-spacing: 1px;
-      }
+      //   .live {
+      //     color: #d0021b;
+      //     font-size: 13px;
+      //     font-weight: 700;
+      //     font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+      //     letter-spacing: 1px;
+      //   }
 
       span {
         display: block;
@@ -45,5 +46,4 @@ $size-medium: 13.7px;
       }
     }
   }
-  
 }
