@@ -21,69 +21,7 @@ $size-medium: 13.7px;
   }
 }
 
-.worldArticle {
-  .trendingTopic {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 11px;
-    padding-top: 1.4rem;
-    border-top: 1px solid rgb(0, 0, 0);
-    .mainHeadline {
-      h3 {
-        margin-top: 5px;
-        font-family: "Domine";
-      }
-      p {
-        margin-top: 8px;
-        font-size: $size-medium;
-        color: $p-color;
-        font-family: "Lora";
-        @include minread("6 min read");
-      }
-      .live {
-        color: #d0021b;
-        font-size: 13px;
-        font-weight: 700;
-        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
-        letter-spacing: 1px;
-      }
 
-      span {
-        display: block;
-      }
-    }
-    .secondHeadline {
-      h4 {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 0.8px solid $border;
-        font-size: 15px;
-        @include minread("4 min read");
-      }
-    }
-  }
-  .electionsSection {
-    margin-top: 1.3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: 1px solid $border;
-    padding-top: 13px;
-
-    h3 {
-      font-size: 14px;
-      color: #000000;
-      font-family: "Lora";
-      @include minread("4 min read");
-      &:first-child {
-        border-right: 1px solid rgb(192, 192, 192);
-        padding-right: 1rem;
-      }
-      &:nth-child(2) {
-        margin-left: 1rem;
-      }
-    }
-  }
-}
 .EntertainmentSection {
   padding-top: 1.4rem;
   border-top: 1px solid rgb(0, 0, 0);
@@ -121,3 +59,25 @@ $size-medium: 13.7px;
     }
   }
 }
+
+.electionsSection {
+    margin-top: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid $border;
+    padding-top: 13px;
+
+    h3 {
+      font-size: 14px;
+      color: #000000;
+      font-family: "Lora";
+      @include minread("4 min read");
+      &:first-child {
+        border-right: 1px solid rgb(192, 192, 192);
+        padding-right: 1rem;
+      }
+      &:nth-child(2) {
+        margin-left: 1rem;
+      }
+    }
+  }

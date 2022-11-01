@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import ImageCaption from "../ui/ImageCaption";
+import BigArticle from "../ui/mainPage/BigArticle";
 import classes from "./Main.module.scss";
 const MainPage = ({ content }) => {
   const globalData = content.results;
@@ -76,34 +77,13 @@ const MainPage = ({ content }) => {
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>
-        <article className={classes.worldArticle}>
-          <div className={classes.trendingTopic}>
-            <div>
-              <div className={classes.mainHeadline}>
-                <span className={classes.live}>LIVE</span>
-                <h3>{featuredWorld.title}</h3>
-                <p>{featuredWorld.abstract}</p>
-              </div>
-              <div className={classes.secondHeadline}>
-                <h4>{usData[0].title}</h4>
-              </div>
-            </div>
-            <div>
-              <ImageCaption
-                featuredImg={featuredWorld.image}
-                caption={featuredWorld.caption}
-                alt={featuredWorld.caption}
-                width={featuredWorld.width}
-                height={featuredWorld.height}
-              />
-            </div>
-          </div>
+        <BigArticle mainFeatured={featuredWorld} SecondaryFeatured={usData[0]}>
           <div className={classes.electionsSection}>
             {elections.map((election) => (
               <h3 key={election.title}>{election.title}</h3>
             ))}
           </div>
-        </article>
+        </BigArticle>
       </div>
       <div className={classes.rightSection}>
         <div className={classes.EntertainmentSection}>
