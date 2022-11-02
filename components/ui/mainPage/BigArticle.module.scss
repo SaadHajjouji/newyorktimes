@@ -7,6 +7,10 @@ $size-medium: 13.7px;
 .bigArticle {
   margin-bottom: 2rem;
   .trendingTopic {
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 11px;

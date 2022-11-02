@@ -177,8 +177,10 @@ const MainPage = ({ content }) => {
               width={featEntertainment[0].width}
               height={featEntertainment[0].height}
             />
-            <h3>{featEntertainment[0].title}</h3>
-            <p>{featEntertainment[0].abstract}</p>
+            <div className={classes.section1Titles}>
+              <h3>{featEntertainment[0].title}</h3>
+              <p>{featEntertainment[0].abstract}</p>
+            </div>
           </article>
           <div className={classes.miniSectionWrapper}>
             <article className={classes.section2}>
@@ -205,25 +207,29 @@ const MainPage = ({ content }) => {
         </div>
         <div className={classes.opinionSection}>
           <h4 className={classes.sectionHeader}>Opinion</h4>
-          {opinionData.map((op, i) => (
-            <article key={op.title} className={classes.opinionArticle}>
-              <div className={classes.opinionContent}>
-                <span className={classes.authorName}>{op.byline.slice(3)}</span>
-                <h5 key={op.title}>{op.title}</h5>
-              </div>
-              {i % 2 === 0 ? (
-                <ImageCaption
-                  featuredImg={op.multimedia[2].url}
-                  caption={op.multimedia[1].caption}
-                  alt={op.multimedia[1].caption}
-                  width={op.multimedia[1].width}
-                  height={op.multimedia[1].height}
-                />
-              ) : (
-                ""
-              )}
-            </article>
-          ))}
+          <div className={classes.opinionSectionWrapper}>
+            {opinionData.map((op, i) => (
+              <article key={op.title} className={classes.opinionArticle}>
+                <div className={classes.opinionContent}>
+                  <span className={classes.authorName}>
+                    {op.byline.slice(3)}
+                  </span>
+                  <h5 key={op.title}>{op.title}</h5>
+                </div>
+                {i % 2 === 0 ? (
+                  <ImageCaption
+                    featuredImg={op.multimedia[1].url}
+                    caption={op.multimedia[1].caption}
+                    alt={op.multimedia[1].caption}
+                    width={op.multimedia[1].width}
+                    height={op.multimedia[1].height}
+                  />
+                ) : (
+                  ""
+                )}
+              </article>
+            ))}
+          </div>
         </div>
         <div className={classes.moreNewsSection}>
           <h4 className={classes.sectionHeader}>more news</h4>
@@ -234,7 +240,7 @@ const MainPage = ({ content }) => {
                 .map((el) => (
                   <article className={classes.moreNewsArticle} key={el.title}>
                     <ImageCaption
-                      featuredImg={el.multimedia[2].url}
+                      featuredImg={el.multimedia[1].url}
                       caption={""}
                       alt={el.multimedia[1].caption}
                       width={el.multimedia[1].width}
@@ -251,7 +257,7 @@ const MainPage = ({ content }) => {
                 .map((el) => (
                   <article className={classes.moreNewsArticle} key={el.title}>
                     <ImageCaption
-                      featuredImg={el.multimedia[2].url}
+                      featuredImg={el.multimedia[1].url}
                       caption={""}
                       alt={el.multimedia[1].caption}
                       width={el.multimedia[1].width}
