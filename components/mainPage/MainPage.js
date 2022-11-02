@@ -39,6 +39,15 @@ const MainPage = ({ content }) => {
       el.section === "parenting" ||
       el.section === "food"
   );
+  const moreNewsData = globalData
+    .filter(
+      (el) =>
+        el.section === "business" ||
+        el.section === "technology" ||
+        el.section === "nyregion" ||
+        el.subsection === "middleeast"
+    )
+    .filter((el, i) => i < 4);
   //* *  data for the different sections
   // * * data for the world news featured section
   const featuredWorld = {
@@ -91,14 +100,14 @@ const MainPage = ({ content }) => {
     []
   );
   const featuredUs = {
-    title: usData[randomObjectIndex].title,
-    abstract: usData[randomObjectIndex].abstract,
-    image: usData[randomObjectIndex].multimedia[1].url,
-    width: usData[randomObjectIndex].multimedia[1].width,
-    height: usData[randomObjectIndex].multimedia[1].height,
-    caption: usData[randomObjectIndex].multimedia[1].caption,
-    url: usData[randomObjectIndex].url,
-    date: usData[randomObjectIndex].published_date,
+    title: usData[randomObjectIndex]?.title,
+    abstract: usData[randomObjectIndex]?.abstract,
+    image: usData[randomObjectIndex]?.multimedia[1].url,
+    width: usData[randomObjectIndex]?.multimedia[1].width,
+    height: usData[randomObjectIndex]?.multimedia[1].height,
+    caption: usData[randomObjectIndex]?.multimedia[1].caption,
+    url: usData[randomObjectIndex]?.url,
+    date: usData[randomObjectIndex]?.published_date,
   };
   // * data for the climate section
   const climateSection = {
@@ -133,7 +142,7 @@ const MainPage = ({ content }) => {
       date: wellnessData[wellnessData.length - 1].published_date,
     },
   ];
-  console.log(globalData);
+  console.log(moreNewsData);
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>
@@ -198,13 +207,13 @@ const MainPage = ({ content }) => {
           <h4 className={classes.sectionHeader}>Opinion</h4>
           {opinionData.map((op, i) => (
             <article key={op.title} className={classes.opinionArticle}>
-              <div>
+              <div className={classes.opinionContent}>
                 <span className={classes.authorName}>{op.byline.slice(3)}</span>
                 <h5 key={op.title}>{op.title}</h5>
               </div>
               {i % 2 === 0 ? (
                 <ImageCaption
-                  featuredImg={op.multimedia[1].url}
+                  featuredImg={op.multimedia[2].url}
                   caption={op.multimedia[1].caption}
                   alt={op.multimedia[1].caption}
                   width={op.multimedia[1].width}
@@ -215,6 +224,45 @@ const MainPage = ({ content }) => {
               )}
             </article>
           ))}
+        </div>
+        <div className={classes.moreNewsSection}>
+          <h4 className={classes.sectionHeader}>more news</h4>
+          <div className={classes.moreNewsWrapper}>
+            <div className={classes.moreNewsWrapper1}>
+              {moreNewsData
+                .filter((_, i) => i < 2)
+                .map((el) => (
+                  <article className={classes.moreNewsArticle} key={el.title}>
+                    <ImageCaption
+                      featuredImg={el.multimedia[2].url}
+                      caption={""}
+                      alt={el.multimedia[1].caption}
+                      width={el.multimedia[1].width}
+                      height={el.multimedia[1].height}
+                    />
+                    <h3>{el.title}</h3>
+                    <p>{el.abstract}</p>
+                  </article>
+                ))}
+            </div>
+            <div className={classes.moreNewsWrapper2}>
+              {moreNewsData
+                .filter((_, i) => i >= 2)
+                .map((el) => (
+                  <article className={classes.moreNewsArticle} key={el.title}>
+                    <ImageCaption
+                      featuredImg={el.multimedia[2].url}
+                      caption={""}
+                      alt={el.multimedia[1].caption}
+                      width={el.multimedia[1].width}
+                      height={el.multimedia[1].height}
+                    />
+                    <h3>{el.title}</h3>
+                    <p>{el.abstract}</p>
+                  </article>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
