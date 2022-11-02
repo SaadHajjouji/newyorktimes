@@ -15,7 +15,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainPageLayout>
+      <MainPageLayout content={content}>
         <MainPage content={content} />
       </MainPageLayout>
     </Fragment>
@@ -29,6 +29,6 @@ export async function getStaticProps() {
     props: {
       content: data.data,
     },
-    revalidate: 30,
+    revalidate: 100,
   };
 }

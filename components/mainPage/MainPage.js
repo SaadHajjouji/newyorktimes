@@ -142,7 +142,7 @@ const MainPage = ({ content }) => {
       date: wellnessData[wellnessData.length - 1].published_date,
     },
   ];
-  console.log(moreNewsData);
+
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>

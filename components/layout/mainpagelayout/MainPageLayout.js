@@ -3,13 +3,13 @@ import DesktopFooter from "../../../components/layout/mainpagelayout/Footer/Desk
 import MobileFooter from "../../../components/layout/mainpagelayout/Footer/MobileFooter";
 import MainPageHeader from "./Header/MainPageHeader";
 
-const MainPageLayout = (props) => {
+const MainPageLayout = ({ content, children }) => {
   return (
     <Fragment>
       <MainPageHeader />
-      <main>{props.children}</main>
-      {/* <DesktopFooter />
-      <MobileFooter /> */}
+      <main>{children}</main>
+      <DesktopFooter />
+      <MobileFooter />
     </Fragment>
   );
 };
