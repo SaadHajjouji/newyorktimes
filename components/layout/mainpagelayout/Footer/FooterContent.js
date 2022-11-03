@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 export const FooterContent = ({}) => {
   const [data, setData] = useState();
   useEffect(() => {
@@ -30,57 +29,27 @@ export const FooterContent = ({}) => {
     return uniqueTitles;
   };
   console.log(GetUniqueTitles());
-  // if (data)
-  return (
-    <>
-      <div>
-        <h3>News</h3>
-        <ul>
-          <li>Home Page</li>
-          <li>World</li>
-          <li>CoronaVirus</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Arts</h3>
-        <ul>
-          <li>Today&apos;s Arts</li>
-          <li>Art & Design</li>
-          <li>Books</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Living</h3>
-        <ul>
-          <li>Automotive</li>
-          <li>Games</li>
-          <li>Education</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Living</h3>
-        <ul>
-          <li>Automotive</li>
-          <li>Games</li>
-          <li>Education</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Living</h3>
-        <ul>
-          <li>Automotive</li>
-          <li>Games</li>
-          <li>Education</li>
-        </ul>
-      </div>{" "}
-      <div>
-        <h3>Living</h3>
-        <ul>
-          <li>Automotive</li>
-          <li>Games</li>
-          <li>Education</li>
-        </ul>
-      </div>
-    </>
-  );
+  if (data)
+    return (
+      <>
+        <div>
+          <h3>News</h3>
+        </div>
+        <div>
+          <h3>Arts</h3>
+        </div>
+        <div>
+          <h3>Living</h3>
+        </div>
+        <div>
+          <h3>Living</h3>
+        </div>
+        <div>
+          <h3>Living</h3>
+        </div>{" "}
+        <div>
+          <h3>Living</h3>
+        </div>
+      </>
+    );
 };

@@ -1,3 +1,4 @@
+@import "./variables.scss";
 // media queries
 @mixin respond($breakpoint) {
   @if $breakpoint==phone {
@@ -50,14 +51,8 @@
     font-size: 13px;
     text-transform: uppercase;
     color: rgb(51, 51, 51);
-  }
-  ul {
-    li {
-      font-size: 13px;
-      color: rgb(51, 51, 51);
-      line-height: 30px;
-      cursor: pointer;
-    }
+    font-family: unset;
+    cursor: pointer;
   }
 }
 

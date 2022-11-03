@@ -1,12 +1,31 @@
 @import "../../../../styles/mixins.scss";
-
+@import "../../../../styles/variables.scss";
 .DesktopFooter {
   @include respond(tab-land) {
     display: none;
+  }
+  margin-top: 2rem;
+  .DesktopFooterContent {
+    margin-top: 8px;
   }
 }
 .FooterWrapper {
   display: flex;
   gap: 9rem;
+  display: flex;
+  margin-top: 10px;
   @include footerContent;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $border;
+}
+.line {
+  margin: 0;
+  padding: 0;
+}
+.line1 {
+  margin-bottom: 1.5px;
+  border-top: 2px solid $border;
+}
+.line2 {
+  border-top: 1px solid rgb(228, 227, 227);
 }

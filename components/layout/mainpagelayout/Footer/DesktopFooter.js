@@ -6,7 +6,10 @@ import classes from "./FooterDesktop.module.scss";
 const DesktopFooter = () => {
   return (
     <footer className={classes.DesktopFooter}>
-      <Image
+      <hr className={`${classes.line} ${classes.line1}`} />
+      <hr className={`${classes.line} ${classes.line2}`} />
+   <div className={classes.DesktopFooterContent}>
+   <Image
         src={"/images/NewYorkTimes.svg"}
         alt="newyorktimes logo"
         width={200}
@@ -15,6 +18,7 @@ const DesktopFooter = () => {
       <div className={classes.FooterWrapper}>
         <FooterContent />
       </div>
+   </div>
     </footer>
   );
 };
