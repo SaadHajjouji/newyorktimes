@@ -1,6 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import MainPageLayout from "../components/layout/mainpagelayout/MainPageLayout";
 import MainPage from "../components/mainPage/MainPage";
 

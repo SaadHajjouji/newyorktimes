@@ -17,27 +17,34 @@ const MainPage = ({ content }) => {
     )
     .filter((el, i) => i < 3);
   const worldDataSection = globalData.filter((el) => el.section === "world")[0];
-  const worldData = globalData.filter((el) => el.section === "world");
-  const usData = globalData.filter((el) => el.section === "us");
+  const worldData = globalData.filter(
+    (el) => el.section === "world" && el.multimedia
+  );
+  const usData = globalData.filter(
+    (el) => el.section === "us" && el.multimedia
+  );
   const climateData = globalData
     .filter(
       (el) =>
         el.section === "briefing" ||
         el.section === "climate" ||
-        el.subsection === "climate"
+        el.section === "t-magazine" ||
+        (el.subsection === "climate" && el.multimedia)
     )
     .filter((_, i) => i < 1);
 
   const elections = globalData
     .filter(
-      (el) => el.subsection === "elections" || el.subsection === "politics"
+      (el) =>
+        el.subsection === "elections" ||
+        (el.subsection === "politics" && el.multimedia)
     )
     .filter((el, i) => i <= 1);
   const wellnessData = globalData.filter(
     (el) =>
       el.section === "well" ||
       el.section === "parenting" ||
-      el.section === "food"
+      (el.section === "food" && el.multimedia)
   );
   const moreNewsData = globalData
     .filter(
@@ -45,7 +52,7 @@ const MainPage = ({ content }) => {
         el.section === "business" ||
         el.section === "technology" ||
         el.section === "nyregion" ||
-        el.subsection === "middleeast"
+        (el.subsection === "middleeast" && el.multimedia)
     )
     .filter((el, i) => i < 4);
   //* *  data for the different sections
@@ -63,24 +70,24 @@ const MainPage = ({ content }) => {
   // * * data for the corner entertainment section
   const featEntertainment = [
     {
-      title: EntertainmentData[0].title,
-      abstract: EntertainmentData[0].abstract,
-      image: EntertainmentData[0].multimedia[1].url,
-      width: EntertainmentData[0].multimedia[1].width,
-      height: EntertainmentData[0].multimedia[1].height,
-      caption: EntertainmentData[0].multimedia[1].caption,
-      url: EntertainmentData[0].url,
-      date: EntertainmentData[0].published_date,
+      title: EntertainmentData[0]?.title,
+      abstract: EntertainmentData[0]?.abstract,
+      image: EntertainmentData[0]?.multimedia[1].url,
+      width: EntertainmentData[0]?.multimedia[1].width,
+      height: EntertainmentData[0]?.multimedia[1].height,
+      caption: EntertainmentData[0]?.multimedia[1].caption,
+      url: EntertainmentData[0]?.url,
+      date: EntertainmentData[0]?.published_date,
     },
     {
-      title: EntertainmentData[1].title,
-      abstract: EntertainmentData[1].abstract,
-      image: EntertainmentData[1].multimedia[1].url,
-      width: EntertainmentData[1].multimedia[1].width,
-      height: EntertainmentData[1].multimedia[1].height,
-      caption: EntertainmentData[1].multimedia[1].caption,
-      url: EntertainmentData[1].url,
-      date: EntertainmentData[1].published_date,
+      title: EntertainmentData[1]?.title,
+      abstract: EntertainmentData[1]?.abstract,
+      image: EntertainmentData[1]?.multimedia[1].url,
+      width: EntertainmentData[1]?.multimedia[1].width,
+      height: EntertainmentData[1]?.multimedia[1].height,
+      caption: EntertainmentData[1]?.multimedia[1].caption,
+      url: EntertainmentData[1]?.url,
+      date: EntertainmentData[1]?.published_date,
     },
     {
       title: EntertainmentData[2]?.title,
@@ -99,26 +106,27 @@ const MainPage = ({ content }) => {
     () => setRandomObject(Math.floor(Math.random() * (usData.length - 1) + 1)),
     []
   );
+
   const featuredUs = {
     title: usData[randomObjectIndex]?.title,
     abstract: usData[randomObjectIndex]?.abstract,
-    image: usData[randomObjectIndex]?.multimedia[1].url,
-    width: usData[randomObjectIndex]?.multimedia[1].width,
-    height: usData[randomObjectIndex]?.multimedia[1].height,
-    caption: usData[randomObjectIndex]?.multimedia[1].caption,
+    image: usData[randomObjectIndex]?.multimedia[0]?.url,
+    width: usData[randomObjectIndex]?.multimedia[0]?.width,
+    height: usData[randomObjectIndex]?.multimedia[0]?.height,
+    caption: usData[randomObjectIndex]?.multimedia[0]?.caption,
     url: usData[randomObjectIndex]?.url,
     date: usData[randomObjectIndex]?.published_date,
   };
   // * data for the climate section
   const climateSection = {
-    title: climateData[0].title,
-    abstract: climateData[0].abstract,
-    image: climateData[0].multimedia[1].url,
-    width: climateData[0].multimedia[1].width,
-    height: climateData[0].multimedia[1].height,
-    caption: climateData[0].multimedia[1].caption,
-    url: climateData[0].url,
-    date: climateData[0].published_date,
+    title: climateData[0]?.title,
+    abstract: climateData[0]?.abstract,
+    image: climateData[0]?.multimedia[1]?.url,
+    width: climateData[0]?.multimedia[1]?.width,
+    height: climateData[0]?.multimedia[1]?.height,
+    caption: climateData[0]?.multimedia[1]?.caption,
+    url: climateData[0]?.url,
+    date: climateData[0]?.published_date,
   };
   const wellnessSection = [
     {
@@ -247,7 +255,6 @@ const MainPage = ({ content }) => {
                       height={el.multimedia[1].height}
                     />
                     <h3>{el.title}</h3>
-                    <p>{el.abstract}</p>
                   </article>
                 ))}
             </div>
@@ -264,7 +271,6 @@ const MainPage = ({ content }) => {
                       height={el.multimedia[1].height}
                     />
                     <h3>{el.title}</h3>
-                    <p>{el.abstract}</p>
                   </article>
                 ))}
             </div>

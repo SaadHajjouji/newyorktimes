@@ -2,37 +2,40 @@ import React from "react";
 import ImageCaption from "../ImageCaption";
 import classes from "./BigArticle.module.scss";
 const BigArticle = ({ mainFeatured, SecondaryFeatured, children }) => {
-  return (
-    <>
-      <article className={classes.bigArticle}>
-        <div className={classes.trendingTopic}>
-          <div>
-            <div className={classes.mainHeadline}>
-              <h3>{mainFeatured.title}</h3>
-              <p>{mainFeatured.abstract}</p>
-            </div>
-            {SecondaryFeatured !== "" ? (
-              <div className={classes.secondHeadline}>
-                <h4>{SecondaryFeatured.title}</h4>
+  if (!mainFeatured || !SecondaryFeatured) {
+    return "";
+  } else
+    return (
+      <>
+        <article className={classes.bigArticle}>
+          <div className={classes.trendingTopic}>
+            <div>
+              <div className={classes.mainHeadline}>
+                <h3>{mainFeatured.title}</h3>
+                <p>{mainFeatured.abstract}</p>
               </div>
-            ) : (
-              ""
-            )}
+              {SecondaryFeatured !== "" ? (
+                <div className={classes.secondHeadline}>
+                  <h4>{SecondaryFeatured.title}</h4>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+            <div>
+              <ImageCaption
+                featuredImg={mainFeatured.image}
+                caption={mainFeatured.caption}
+                alt={mainFeatured.caption}
+                width={mainFeatured.width}
+                height={mainFeatured.height}
+              />
+            </div>
           </div>
-          <div>
-            <ImageCaption
-              featuredImg={mainFeatured.image}
-              caption={mainFeatured.caption}
-              alt={mainFeatured.caption}
-              width={mainFeatured.width}
-              height={mainFeatured.height}
-            />
-          </div>
-        </div>
-        {children}
-      </article>
-    </>
-  );
+          {children}
+        </article>
+      </>
+    );
 };
 
 export default BigArticle;

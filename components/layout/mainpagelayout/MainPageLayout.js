@@ -3,7 +3,7 @@ import DesktopFooter from "../../../components/layout/mainpagelayout/Footer/Desk
 import MobileFooter from "../../../components/layout/mainpagelayout/Footer/MobileFooter";
 import MainPageHeader from "./Header/MainPageHeader";
 
-const MainPageLayout = ({ content, children }) => {
+const MainPageLayout = ({ children }) => {
   return (
     <Fragment>
       <MainPageHeader />

@@ -19,9 +19,7 @@ export const FooterContent = ({}) => {
       });
   }, []);
 
-
-
-  const GetUniqueTitle=()=>{
+  const GetUniqueTitles = () => {
     const sectionNames = data?.map((el) => el.section);
     let uniqueTitles = [];
     sectionNames?.forEach((el) => {
@@ -29,8 +27,9 @@ export const FooterContent = ({}) => {
         uniqueTitles.push(el);
       }
     });
-    return uniqueTitles
-  }
+    return uniqueTitles;
+  };
+  console.log(GetUniqueTitles());
   // if (data)
   return (
     <>
