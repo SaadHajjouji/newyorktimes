@@ -11,7 +11,7 @@
 }
 .FooterWrapper {
   display: flex;
-  gap: 9rem;
+  justify-content: space-between;
   display: flex;
   margin-top: 10px;
   @include footerContent;

@@ -9,20 +9,6 @@ async function fetchSections() {
     console.log(err);
   }
   return res;
-  //   const baseUrl =
-  //     "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=EhgvtA3WE0sRHZeL6sQ8LPFZtn2CtGFz";
-  //   fetch(baseUrl)
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((res) => {
-  //       if (!res.status) {
-  //         throw new Error("failed to get data");
-  //       } else return res.results;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
 }
 
 export default async function getTitles() {
@@ -36,5 +22,5 @@ export default async function getTitles() {
     }
   });
 
-  return uniqueTitles;
+  return uniqueTitles.filter((el) => el !== "crosswords");
 }
