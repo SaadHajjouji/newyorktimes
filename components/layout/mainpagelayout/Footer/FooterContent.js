@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import getTitles from "../../../../helpers/dataCenter";
 import Link from "next/link";
 export const FooterContent = ({}) => {
-  const [data, setData] = useState();
+  const [sections, setSections] = useState("");
   useEffect(() => {
-    getTitles().then((data) => {
-      setData(data);
-    });
+    getTitles()
+      .then((data) => {
+        setSections(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
-  console.log(data);
-  if (data)
+  if (sections !== "")
     return (
       <>
-        {data.map((el) => (
+        {sections?.map((el) => (
           <div key={el}>
             <Link href={`/categories/${el}`}>
               <a>

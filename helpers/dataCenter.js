@@ -14,7 +14,7 @@ async function fetchSections() {
 export default async function getTitles() {
   const response = await fetchSections();
   const data = response.results;
-  const sectionNames = data.map((el) => el.section);
+  const sectionNames = data?.map((el) => el.section);
   let uniqueTitles = [];
   sectionNames?.forEach((el) => {
     if (!uniqueTitles.includes(el)) {
