@@ -13,13 +13,16 @@ const MainPage = ({ content }) => {
         el.section === "style" ||
         el.section === "sports" ||
         el.section === "travel" ||
-        el.section === "podcasts"
+        el.section === "podcasts" ||
+        el.section === "upshot" ||
+        el.section === "dining"
     )
     .filter((el, i) => i < 3);
   const worldDataSection = globalData.filter((el) => el.section === "world")[0];
   const worldData = globalData.filter(
     (el) => el.section === "world" && el.multimedia
   );
+
   const usData = globalData.filter(
     (el) => el.section === "us" && el.multimedia
   );
@@ -150,7 +153,7 @@ const MainPage = ({ content }) => {
       date: wellnessData[wellnessData.length - 1].published_date,
     },
   ];
-
+  console.log(globalData);
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>

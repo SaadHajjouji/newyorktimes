@@ -12,7 +12,9 @@ export const FooterContent = ({}) => {
         console.log(err);
       });
   }, []);
-  if (sections !== "")
+  if (sections == "") {
+    return "";
+  } else
     return (
       <>
         {sections?.map((el) => (

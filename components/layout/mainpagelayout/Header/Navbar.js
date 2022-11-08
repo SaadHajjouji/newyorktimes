@@ -13,9 +13,9 @@ const Navbar = () => {
         console.log(err);
       });
   }, []);
-  console.log(sections);
-
-  if (sections !== "")
+  if (sections == "") {
+    return "";
+  } else
     return (
       <>
         <div className={classes.desktopNavBar}>

@@ -24,7 +24,9 @@ export default function Home(props) {
 export async function getStaticProps() {
   const baseUrl =
     "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=EhgvtA3WE0sRHZeL6sQ8LPFZtn2CtGFz";
+
   const data = await axios.get(baseUrl);
+
   return {
     props: {
       content: data.data,
