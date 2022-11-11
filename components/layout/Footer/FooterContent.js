@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getTitles from "../../../../helpers/dataCenter";
+import getTitles from "../../../helpers/dataCenter";
 import Link from "next/link";
 export const FooterContent = ({}) => {
   const [sections, setSections] = useState("");

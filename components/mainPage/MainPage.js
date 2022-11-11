@@ -10,8 +10,7 @@ const MainPage = ({ content }) => {
     .filter((el) => el.multimedia)
     .filter((el) => el.section !== "opinion");
   const opinionData = content.results.filter((el) => el.section === "opinion");
-  console.log(opinionData);
-  console.log(globalData);
+
   return (
     <div className={classes.generalLayout}>
       <div className={classes.leftSection}>

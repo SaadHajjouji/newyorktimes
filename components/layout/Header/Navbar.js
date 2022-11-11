@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import getTitles from "../../../../helpers/dataCenter";
+import getTitles from "../../../helpers/dataCenter";
 import classes from "./Navbar.module.scss";
 const Navbar = () => {
   const [sections, setSections] = useState();

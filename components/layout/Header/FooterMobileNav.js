@@ -10,4 +10,3 @@ const FooterMobileNav = () => {
 };
 
 export default FooterMobileNav;
-      

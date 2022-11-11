@@ -41,6 +41,9 @@
     }
     @include respond(phone) {
       display: unset !important;
+      .section1Titles {
+        width: unset !important;
+      }
     }
     h3 {
       margin-top: 11px;

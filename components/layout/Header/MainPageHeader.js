@@ -2,23 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
-import SearchInput from "../../../ui/SearchInput";
+import SearchInput from "../../ui/SearchInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import FooterMobileNav from "./FooterMobileNav";
 import axios from "axios";
 import Navbar from "./Navbar";
-const MainPageHeader = () => {
-  // state of menu click
-  const [showMenu, setShowMenu] = useState(false);
+import MenuButton from "../../ui/menubutton/MenuButton";
+const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
   //input reference
   const searchInputRef1 = useRef();
   const searchInputRef2 = useRef();
 
-  // state of side navigation
-  const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
   // mobile navigation
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
   // weather data
@@ -62,18 +59,14 @@ const MainPageHeader = () => {
   });
 
   return (
-    <header onClickCapture={() => setshowSideNavDesktop(false)}>
+    <header>
       <section className={classes.desktopHeader}>
         <div className={classes.HeadertopSection}>
           <div className={classes.topNavigation}>
-            <button
-              onClick={() => {
-                setShowMenu(!showMenu);
-              }}
-              className={showMenu ? `${classes.btnMenu} ` : classes.btnMenu}
-            >
-              <FaBars onClick={() => setshowSideNavDesktop(true)} />
-            </button>
+            <MenuButton
+              showSideNavDesktop={showSideNavDesktop}
+              setshowSideNavDesktop={setshowSideNavDesktop}
+            />
             <button
               className={
                 showSearchInput
