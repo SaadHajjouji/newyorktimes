@@ -165,11 +165,11 @@
     .moreNewsWrapper1,
     .moreNewsWrapper2 {
       display: flex;
-      .moreNewsArticle:first-child {
+      > :first-child {
         padding-right: 9px;
         border-right: 1px solid $border;
       }
-      .moreNewsArticle:nth-child(2) {
+      > :nth-child(2) {
         margin-left: 9px;
       }
     }
@@ -179,16 +179,6 @@
     }
     .moreNewsWrapper2 {
       margin-top: 11px;
-    }
-    .moreNewsArticle {
-      h3 {
-        font-size: 13px;
-      }
-      p {
-        margin-top: 4px;
-        color: $p-color;
-        font-size: 11.8px;
-      }
     }
   }
 }

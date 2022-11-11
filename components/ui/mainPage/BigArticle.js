@@ -2,7 +2,7 @@ import React from "react";
 import ImageCaption from "../ImageCaption";
 import classes from "./BigArticle.module.scss";
 const BigArticle = ({ mainFeatured, SecondaryFeatured, children }) => {
-  if (!mainFeatured || !SecondaryFeatured) {
+  if (mainFeatured.title === undefined) {
     return "";
   } else
     return (
@@ -24,11 +24,11 @@ const BigArticle = ({ mainFeatured, SecondaryFeatured, children }) => {
             </div>
             <div>
               <ImageCaption
-                featuredImg={mainFeatured.image}
-                caption={mainFeatured.caption}
-                alt={mainFeatured.caption}
-                width={mainFeatured.width}
-                height={mainFeatured.height}
+                featuredImg={mainFeatured.multimedia[0].url}
+                caption={mainFeatured.multimedia[0].caption}
+                alt={mainFeatured.multimedia[0].caption}
+                width={mainFeatured.multimedia[0].width}
+                height={mainFeatured.multimedia[0].height}
               />
             </div>
           </div>

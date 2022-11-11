@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import getTitles from "../../../../helpers/dataCenter";
 import classes from "./Navbar.module.scss";
 const Navbar = () => {
-  const [sections, setSections] = useState("");
+  const [sections, setSections] = useState();
   useEffect(() => {
     getTitles()
       .then((data) => {
@@ -13,7 +13,7 @@ const Navbar = () => {
         console.log(err);
       });
   }, []);
-  if (sections == "") {
+  if (!sections) {
     return "";
   } else
     return (
