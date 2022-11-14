@@ -1,0 +1,51 @@
+@import "../../../styles/mixins.scss";
+
+.mobileHeader {
+  height: 5rem;
+  @include respond(minPhone) {
+    display: none !important;
+  }
+}
+.HeaderTopSectionPhone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.HeaderBottomSectionPhone {
+  font-size: 9px;
+  display: flex;
+  border: 1px solid rgb(228, 225, 225);
+  border-left: 0;
+  border-right: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 11px 0;
+  padding: 0.6rem 1rem;
+  justify-content: space-between;
+
+  @include respond(phone) {
+    background-color: rgb(248, 247, 247);
+  }
+  .date {
+    font-weight: 700;
+  }
+  .date2 {
+    @include respond(phone) {
+      visibility: hidden;
+    }
+  }
+  .date1 {
+    @include respond(phone) {
+      visibility: visible !important;
+    }
+    @include respond(tab-land) {
+      visibility: hidden;
+    }
+  }
+  a {
+    color: rgb(50, 104, 145);
+  }
+}

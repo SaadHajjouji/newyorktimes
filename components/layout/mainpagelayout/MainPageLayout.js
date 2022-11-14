@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import DesktopFooter from "../Footer/DesktopFooter";
 import MobileFooter from "../Footer/MobileFooter";
-import MainPageHeader from "../Header/MainPageHeader";
+import MainPageHeader from "../Header/MainPageHeader/MainPageHeader";
 
 const MainPageLayout = ({
   children,

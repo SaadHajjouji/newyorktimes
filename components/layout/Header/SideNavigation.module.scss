@@ -1,0 +1,27 @@
+.DesktopSideNavigation {
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  border-right: 1px solid rgb(204, 204, 204);
+  box-shadow: rgb(0 0 0 / 10%) 4px 0px 6px 1px;
+  height: 100%;
+  left: 0px;
+  padding: 10px 18px;
+  position: fixed;
+  top: 0px;
+  width: 190px;
+  z-index: 999;
+  li {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 7px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(240, 248, 252);
+      border-radius: 3px;
+    }
+  }
+}
+.hide {
+    display: none;
+  }
