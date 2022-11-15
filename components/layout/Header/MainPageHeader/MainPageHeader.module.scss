@@ -17,36 +17,10 @@
     flex: 1;
     display: flex;
     align-items: center;
-    .btnShowSearch {
-      padding: 8px 9px 9px;
-      height: 33px;
-      color: #333;
-      font-size: 14px;
-      margin-right: 7px;
-      transition: 0.4s ease-in-out;
-      @include headerBtns;
-      &:hover {
-        background-color: #f7f7f7;
-      }
-    }
+   
   }
 
-  .subsLogin {
-    flex: 1;
-    font-size: 11px;
-    text-align: end;
-    a {
-      @include headerBtns;
-      padding: 8px 12px;
-      background-color: #567b95;
-      border: 1px solid #326891;
-      height: 11px;
-      color: #fff;
-      &:nth-child(2) {
-        margin-left: 7px;
-      }
-    }
-  }
+
 }
 .HeaderBottomSection {
   display: flex;
@@ -115,6 +89,6 @@
 .show {
   display: block;
 }
-.backgroundColorClicked {
-  background-color: #f7f7f7;
-}
+// .backgroundColorClicked {
+//   background-color: #f7f7f7;
+// }

@@ -1,10 +1,17 @@
 import React, { Fragment } from "react";
 import CategoryPageHeader from "../Header/CategoryPageHeader/CategoryPageHeader";
 
-const CategoryPageLayout = ({ children }) => {
+const CategoryPageLayout = ({
+  children,
+  showSideNavDesktop,
+  setshowSideNavDesktop,
+}) => {
   return (
     <Fragment>
-      <CategoryPageHeader />
+      <CategoryPageHeader
+        showSideNavDesktop={showSideNavDesktop}
+        setshowSideNavDesktop={setshowSideNavDesktop}
+      />
       <main>{children}</main>
     </Fragment>
   );

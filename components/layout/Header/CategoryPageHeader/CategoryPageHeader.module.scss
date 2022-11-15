@@ -1,0 +1,47 @@
+@import "../../../../styles/mixins.scss";
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.headerContainer {
+  @include respond(tab-land) {
+    display: none;
+  }
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: space-between;
+  height: 33px;
+  .section1Container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .logo {
+    flex: 1;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .sublog {
+    flex: 1;
+    :nth-child(1) {
+      flex: unset;
+    }
+  }
+}
+.headerUnderline {
+  @include respond(tab-land) {
+    display: none;
+  }
+  position: fixed;
+  left: 0;
+  right: 0;
+  border-top: 0;
+  border-bottom: 1px solid rgb(235, 232, 232);
+}

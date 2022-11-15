@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import classes from "./MainPageHeader.module.scss";
 import Image from "next/image";
 import SearchInput from "../../../ui/SearchInput";
@@ -9,6 +8,8 @@ import MenuButton from "../../../ui/MenuButton";
 import MobileNavigationSection from "../MobileNavigationSection";
 import SideNavigation from "../SideNavigation";
 import MobileHeaderSection from "../MobileHeaderSection";
+import ShowInputButton from "../../../ui/ShowInputButton";
+import SubsLoginBtns from "../../../ui/SubsLoginBtns";
 const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
@@ -67,16 +68,10 @@ const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
               showSideNavDesktop={showSideNavDesktop}
               setshowSideNavDesktop={setshowSideNavDesktop}
             />
-            <button
-              className={
-                showSearchInput
-                  ? `${classes.backgroundColorClicked} ${classes.btnShowSearch}`
-                  : classes.btnShowSearch
-              }
-              onClick={() => setShowSearchInput(!showSearchInput)}
-            >
-              <FaSearch />
-            </button>
+            <ShowInputButton
+              showSearchInput={showSearchInput}
+              setShowSearchInput={setShowSearchInput}
+            />
             <div className={showSearchInput ? classes.show : classes.hide}>
               <SearchInput
                 searchInputRef={searchInputRef1}
@@ -85,10 +80,7 @@ const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
             </div>
           </div>
 
-          <div className={classes.subsLogin}>
-            <a>SUBSCRIBE FOR $0.25/ WEEK</a>
-            <a>LOG IN</a>
-          </div>
+       <SubsLoginBtns/>
         </div>
         <div className={classes.HeaderBottomSection}>
           <div className={classes.dateAndPaperToday}>
