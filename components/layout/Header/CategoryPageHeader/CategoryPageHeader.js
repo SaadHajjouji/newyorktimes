@@ -6,11 +6,13 @@ import ShowInputButton from "../../../ui/ShowInputButton";
 import classes from "./CategoryPageHeader.module.scss";
 import SubsLoginBtns from "../../../ui/SubsLoginBtns";
 import MobileHeaderSection from "../MobileHeaderSection";
+import MobileNavigationSection from "../MobileNavigationSection";
 const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
 
-  const searchInputRef = useRef();
+  const searchInputRef1 = useRef();
+  const searchInputRef2 = useRef();
   const todayDate = new Date().toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -19,7 +21,7 @@ const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
   });
 
   return (
-    <header >
+    <header>
       <div className={classes.headerContainer}>
         <div className={classes.section1Container}>
           <MenuButton
@@ -32,7 +34,7 @@ const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
           />
           <div className={showSearchInput ? classes.show : classes.hide}>
             <SearchInput
-              searchInputRef={searchInputRef}
+              searchInputRef={searchInputRef1}
               showSearchInput={showSearchInput}
             />
           </div>
@@ -54,6 +56,11 @@ const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
       <hr className={classes.headerUnderline}></hr>
       <MobileHeaderSection
         todayDate={todayDate}
+        setShowMobileNavigation={setShowMobileNavigation}
+      />
+      <MobileNavigationSection
+        searchInputRef2={searchInputRef2}
+        ShowMobileNavigation={ShowMobileNavigation}
         setShowMobileNavigation={setShowMobileNavigation}
       />
     </header>
