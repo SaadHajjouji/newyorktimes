@@ -75,6 +75,43 @@ const CategoryPageMain = () => {
             </div>
           </article>
         </section>
+        <section className={classes.lastNewsSection}>
+          <article className={classes.lastNewsArticle}>
+            <div className={classes.lastNewsMedia}>
+              <span className={classes.author}>PETER COY</span>
+              <div className={classes.lastNewsPhoto}></div>
+            </div>
+            <h3>Can the Republican Party Move Past Trump?</h3>
+          </article>
+          <article className={classes.lastNewsArticle}>
+            <div className={classes.lastNewsMedia}>
+              <span className={classes.author}>PETER COY</span>
+              <div className={classes.lastNewsPhoto}></div>
+            </div>
+            <h3>Can the Republican Party Move Past Trump?</h3>
+          </article>
+          <article className={classes.lastNewsArticle}>
+            <div className={classes.lastNewsMedia}>
+              <span className={classes.author}>PETER COY</span>
+              <div className={classes.lastNewsPhoto}></div>
+            </div>
+            <h3>Can the Republican Party Move Past Trump?</h3>
+          </article>
+          <article className={classes.lastNewsArticle}>
+            <div className={classes.lastNewsMedia}>
+              <span className={classes.author}>PETER COY</span>
+              <div className={classes.lastNewsPhoto}></div>
+            </div>
+            <h3>Can the Republican Party Move Past Trump?</h3>
+          </article>
+          <article className={classes.lastNewsArticle}>
+            <div className={classes.lastNewsMedia}>
+              <span className={classes.author}>PETER COY</span>
+              <div className={classes.lastNewsPhoto}></div>
+            </div>
+            <h3>Can the Republican Party Move Past Trump?</h3>
+          </article>
+        </section>
       </main>
     </>
   );

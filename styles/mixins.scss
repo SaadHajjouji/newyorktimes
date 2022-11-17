@@ -69,3 +69,48 @@
     margin-top: 3px;
   }
 }
+
+@mixin newsText {
+  @include respond(phone) {
+    h2,
+    h3 {
+      font-size: 1.2rem !important;
+    }
+    p {
+      font-size: 14px;
+    }
+    span {
+      font-size: 13.4px;
+    }
+  }
+  p {
+    font-size: 14.5px;
+  }
+  span {
+    font-size: 13.2px;
+    font-family: Helvetica;
+  }
+  h2,
+  h3 {
+    font-size: 1.32rem;
+  }
+  span,
+  h2,
+  p {
+    margin-top: 8px;
+    display: block;
+  }
+  h3 {
+    display: block;
+    margin-top: 8px;
+  }
+  p,
+  .author1 {
+    color: $p-color;
+  }
+  .author2 {
+    color: #838383;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+}
