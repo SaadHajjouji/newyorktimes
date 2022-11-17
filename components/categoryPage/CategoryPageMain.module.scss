@@ -1,0 +1,126 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@mixin newsText {
+  @include respond(phone) {
+    h2,
+    h3 {
+      font-size: 1.2rem !important;
+    }
+    p {
+      font-size: 14px;
+    }
+    span {
+      font-size: 13.4px;
+    }
+  }
+  p {
+    font-size: 14.5px;
+  }
+  span {
+    font-size: 13.2px;
+  }
+  h2,
+  h3 {
+    font-size: 1.32rem;
+  }
+  span,
+  h2,
+  p {
+    margin-top: 8px;
+    display: block;
+  }
+  h3 {
+    display: block;
+    margin-top: 8px;
+  }
+  p,
+  .author1 {
+    color: $p-color;
+  }
+  .author2 {
+    color: #838383;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+}
+.main {
+  margin-top: 4rem;
+}
+.headingPrimary {
+  font-family: $lora;
+  font-size: 40px;
+  font-weight: lighter;
+  letter-spacing: 1.4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $border;
+}
+
+.mainNewsSection {
+  @include respond(tab-port) {
+    flex-direction: column-reverse;
+    .mainNewsMedia {
+      width: 100% !important;
+    }
+  }
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $border;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  .mainNewsMedia {
+    width: 50%;
+    .image {
+      width: 100%;
+      height: 29rem;
+      background-color: rgb(219, 216, 23);
+    }
+    span {
+      display: block;
+      text-align: end;
+      color: $p-color;
+      font-size: 10.2px;
+      text-transform: uppercase;
+    }
+  }
+}
+.moreNewsSection {
+  @include respond(phone) {
+    display: block !important;
+    margin-top: 1rem !important;
+    .moreNewsArticle {
+      padding-bottom: 1rem;
+      margin-top: 1rem;
+      border-bottom: 1px solid $border;
+    }
+  }
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  .moreNewsArticle {
+    width: 1fr;
+    .moreNewsMedia {
+      .moreNewsPhoto {
+        width: inherit;
+        height: 14rem;
+        background-color: red;
+      }
+      span {
+        display: block;
+        text-align: end;
+        color: $p-color;
+        font-size: 10.2px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.newsText {
+  @include newsText();
+}

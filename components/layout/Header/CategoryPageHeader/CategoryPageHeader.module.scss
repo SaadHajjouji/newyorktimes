@@ -1,4 +1,5 @@
 @import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss";
 
 .show {
   display: block;
@@ -20,6 +21,17 @@
     display: flex;
     align-items: center;
     flex: 1;
+    .categoryName {
+      margin-left: 20px;
+      font-size: 14.5px;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      -webkit-letter-spacing: 0.7px;
+      -moz-letter-spacing: 0.7px;
+      -ms-letter-spacing: 0.7px;
+      letter-spacing: 0.7px;
+    }
   }
   .logo {
     flex: 1;
@@ -39,7 +51,7 @@
   @include respond(tab-land) {
     display: none;
   }
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   border-top: 0;

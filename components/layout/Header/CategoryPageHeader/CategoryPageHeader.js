@@ -7,6 +7,7 @@ import classes from "./CategoryPageHeader.module.scss";
 import SubsLoginBtns from "../../../ui/SubsLoginBtns";
 import MobileHeaderSection from "../MobileHeaderSection";
 import MobileNavigationSection from "../MobileNavigationSection";
+import SideNavigation from "../SideNavigation";
 const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
@@ -38,7 +39,9 @@ const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
               showSearchInput={showSearchInput}
             />
           </div>
-          <div>{!showSearchInput ? "Politics" : ""}</div>
+          <div className={classes.categoryName}>
+            {!showSearchInput ? "Politics" : ""}
+          </div>
         </div>
         <div className={classes.logo}>
           <Image
@@ -63,6 +66,7 @@ const CategoryPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
         ShowMobileNavigation={ShowMobileNavigation}
         setShowMobileNavigation={setShowMobileNavigation}
       />
+      <SideNavigation showSideNavDesktop={showSideNavDesktop} />
     </header>
   );
 };

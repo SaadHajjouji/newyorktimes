@@ -3,8 +3,9 @@ import { Fragment, useState } from "react";
 import getTitles from "../../helpers/dataCenter";
 import Head from "next/head";
 import CategoryPageLayout from "../../components/layout/categorypagelayout/CategoryPageLayout";
+import CategoryPageMain from "../../components/categoryPage/CategoryPageMain";
 export default function Category(props) {
-  const categoryData = props.data.results;
+  // const categoryData = props.data.results;
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
 
   return (
@@ -19,7 +20,7 @@ export default function Category(props) {
           showSideNavDesktop={showSideNavDesktop}
           setshowSideNavDesktop={setshowSideNavDesktop}
         >
-          bye
+          <CategoryPageMain />
         </CategoryPageLayout>
       </div>
     </Fragment>
