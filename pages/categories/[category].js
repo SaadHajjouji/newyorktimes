@@ -5,7 +5,9 @@ import Head from "next/head";
 import CategoryPageLayout from "../../components/layout/categorypagelayout/CategoryPageLayout";
 import CategoryPageMain from "../../components/categoryPage/CategoryPageMain";
 export default function Category(props) {
-  // const categoryData = props.data.results;
+  const categoryData = props.data.results;
+  const category = props.category;
+
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
 
   return (
@@ -19,8 +21,9 @@ export default function Category(props) {
         <CategoryPageLayout
           showSideNavDesktop={showSideNavDesktop}
           setshowSideNavDesktop={setshowSideNavDesktop}
+          category={category}
         >
-          <CategoryPageMain />
+          <CategoryPageMain categoryData={categoryData} category={category} />
         </CategoryPageLayout>
       </div>
     </Fragment>
@@ -34,6 +37,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       data: data.data,
+      category: category,
     },
   };
 }

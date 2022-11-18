@@ -1,0 +1,31 @@
+@import "../../../styles/mixins.scss";
+.moreNewsArticle {
+  @include respond(phone) {
+    margin-top: 1rem;
+    &:not(:last-child) {
+      border-bottom: 1px solid $border;
+      padding-bottom: 1rem;
+    }
+  }
+  width: 1fr;
+  //   .moreNewsMedia {
+  //     .moreNewsPhoto {
+  //       width: inherit;
+  //       height: 14rem;
+  //       background-color: red;
+  //     }
+  //     span {
+  //       display: block;
+  //       text-align: end;
+  //       color: $p-color;
+  //       font-size: 10.2px;
+  //       text-transform: uppercase;
+  //       font-family: Helvetica;
+  //       margin-top: 4px;
+  //     }
+  //   }
+}
+
+.newsText {
+  @include newsText();
+}

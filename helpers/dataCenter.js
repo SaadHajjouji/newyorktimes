@@ -22,5 +22,8 @@ export default async function getTitles() {
     }
   });
 
-  return uniqueTitles.filter((el) => el !== "crosswords");
+  return uniqueTitles
+    .filter((el) => el !== "crosswords")
+    .filter((el) => el !== "podcasts")
+    .filter((el) => el !== "briefing");
 }

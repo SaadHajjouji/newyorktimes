@@ -1,0 +1,30 @@
+@import "../../../styles/mixins.scss";
+.lastNewsArticle {
+  @include respond(tab-port) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    margin-top: 1rem;
+    &:not(:last-child) {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid $border;
+    }
+    .lastNewsMedia {
+      width: 50%;
+    }
+  }
+  h3 {
+    font-size: 1rem;
+    margin-top: 9px;
+  }
+
+  .lastNewsMedia {
+    .author {
+      font-size: 10px;
+      color: $p-color;
+      margin-bottom: 3px;
+      font-family: Helvetica;
+    }
+  }
+}

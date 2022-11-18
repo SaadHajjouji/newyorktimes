@@ -1,116 +1,46 @@
+import LastNewsArticle from "../ui/categoryPage/LastNewsArticle";
+import MoreNewsArticle from "../ui/categoryPage/MoreNewsArticle";
+import ImageCaption from "../ui/ImageCaption";
 import classes from "./CategoryPageMain.module.scss";
 
-const CategoryPageMain = () => {
+const CategoryPageMain = ({ category, categoryData }) => {
+  const globalData = categoryData.filter((el) => el.multimedia);
+
+  console.log(globalData);
   return (
     <>
       <main className={classes.main}>
-        <h1 className={classes.headingPrimary}>POLITICS</h1>
+        <h1 className={classes.headingPrimary}>{category}</h1>
         <section className={classes.mainNewsSection}>
           <div className={classes.newsText}>
-            <span>The editorial board</span>
-            <h2>America Deserves Better Than Donald Trump</h2>
-            <p>
-              Mr. Trump’s return to the campaign trail poses new dangers to
-              American democracy.
-            </p>
+            <span>{globalData[0].byline.split(",")[0]}</span>
+            <h2>{globalData[0].title}</h2>
+            <p>{globalData[0].abstract}</p>
             <span className={classes.author}>
-              1d ago By THE EDITORIAL BOARD
+              1d ago {globalData[0].byline}
             </span>
           </div>
           <div className={classes.mainNewsMedia}>
-            <div className={classes.image}></div>
-            <span>this is a caption</span>
+            <ImageCaption
+              featuredImg={globalData[0].multimedia[0].url}
+              caption={globalData[0].multimedia[0].caption}
+              alt={globalData[0].multimedia[0].caption}
+              height={globalData[0].multimedia[0].height}
+              width={globalData[0].multimedia[0].width}
+            />
           </div>
         </section>
         <section className={classes.moreNewsSection}>
-          <article className={classes.moreNewsArticle}>
-            <div className={classes.moreNewsMedia}>
-              <div className={classes.moreNewsPhoto}></div>
-              <span>this is a caption</span>
-            </div>
-            <div className={classes.newsText}>
-              <span>The editorial board</span>
-              <h2>America Deserves Better Than Donald Trump</h2>
-              <p>
-                Mr. Trump’s return to the campaign trail poses new dangers to
-                American democracy.
-              </p>
-              <span className={classes.author}>
-                1d ago By THE EDITORIAL BOARD
-              </span>
-            </div>
-          </article>
-          <article className={classes.moreNewsArticle}>
-            <div className={classes.moreNewsMedia}>
-              <div className={classes.moreNewsPhoto}></div>
-              <span>this is a caption</span>
-            </div>
-            <div className={classes.newsText}>
-              <span>The editorial board</span>
-              <h2>America Deserves Better Than Donald Trump</h2>
-              <p>
-                Mr. Trump’s return to the campaign trail poses new dangers to
-                American democracy.
-              </p>
-              <span className={classes.author}>
-                1d ago By THE EDITORIAL BOARD
-              </span>
-            </div>
-          </article>
-          <article className={classes.moreNewsArticle}>
-            <div className={classes.moreNewsMedia}>
-              <div className={classes.moreNewsPhoto}></div>
-              <span>this is a caption</span>
-            </div>
-            <div className={classes.newsText}>
-              <span>The editorial board</span>
-              <h2>America Deserves Better Than Donald Trump</h2>
-              <p>
-                Mr. Trump’s return to the campaign trail poses new dangers to
-                American democracy.
-              </p>
-              <span className={classes.author}>
-                1d ago By THE EDITORIAL BOARD
-              </span>
-            </div>
-          </article>
+          <MoreNewsArticle articleData={globalData[1]} />
+          <MoreNewsArticle articleData={globalData[2]} />
+          <MoreNewsArticle articleData={globalData[3]} />
         </section>
         <section className={classes.lastNewsSection}>
-          <article className={classes.lastNewsArticle}>
-            <div className={classes.lastNewsMedia}>
-              <span className={classes.author}>PETER COY</span>
-              <div className={classes.lastNewsPhoto}></div>
-            </div>
-            <h3>Can the Republican Party Move Past Trump?</h3>
-          </article>
-          <article className={classes.lastNewsArticle}>
-            <div className={classes.lastNewsMedia}>
-              <span className={classes.author}>PETER COY</span>
-              <div className={classes.lastNewsPhoto}></div>
-            </div>
-            <h3>Can the Republican Party Move Past Trump?</h3>
-          </article>
-          <article className={classes.lastNewsArticle}>
-            <div className={classes.lastNewsMedia}>
-              <span className={classes.author}>PETER COY</span>
-              <div className={classes.lastNewsPhoto}></div>
-            </div>
-            <h3>Can the Republican Party Move Past Trump?</h3>
-          </article>
-          <article className={classes.lastNewsArticle}>
-            <div className={classes.lastNewsMedia}>
-              <span className={classes.author}>PETER COY</span>
-              <div className={classes.lastNewsPhoto}></div>
-            </div>
-            <h3>Can the Republican Party Move Past Trump?</h3>
-          </article>
-          <article className={classes.lastNewsArticle}>
-            <div className={classes.lastNewsMedia}>
-              <span className={classes.author}>PETER COY</span>
-              <div className={classes.lastNewsPhoto}></div>
-            </div>
-            <h3>Can the Republican Party Move Past Trump?</h3>
-          </article>
+          <LastNewsArticle articleData={globalData[4]} />
+          <LastNewsArticle articleData={globalData[5]} />
+          <LastNewsArticle articleData={globalData[6]} />
+          <LastNewsArticle articleData={globalData[7]} />
+          <LastNewsArticle articleData={globalData[8]} />
         </section>
       </main>
     </>

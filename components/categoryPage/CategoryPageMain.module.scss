@@ -11,11 +11,15 @@
   letter-spacing: 1.4px;
   padding-bottom: 12px;
   border-bottom: 1px solid $border;
+  text-transform: capitalize;
 }
 
 .mainNewsSection {
   @include respond(tab-port) {
     flex-direction: column-reverse;
+    .newsText {
+      width: 100% !important;
+    }
     .mainNewsMedia {
       width: 100% !important;
     }
@@ -27,35 +31,17 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  .newsText {
+    width: 40%;
+  }
   .mainNewsMedia {
     width: 50%;
-    .image {
-      width: 100%;
-      height: 29rem;
-      background-color: rgb(219, 216, 23);
-    }
-    span {
-      display: block;
-      text-align: end;
-      color: $p-color;
-      font-size: 10.2px;
-      text-transform: uppercase;
-      font-family: Helvetica;
-      margin-top: 4px;
-    }
   }
 }
 .moreNewsSection {
   @include respond(phone) {
     display: block !important;
     margin-top: 1rem !important;
-    .moreNewsArticle {
-      margin-top: 1rem;
-      &:not(:last-child) {
-        border-bottom: 1px solid $border;
-        padding-bottom: 1rem;
-      }
-    }
   }
   @include respond(tab-port) {
     display: grid;
@@ -68,25 +54,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  .moreNewsArticle {
-    width: 1fr;
-    .moreNewsMedia {
-      .moreNewsPhoto {
-        width: inherit;
-        height: 14rem;
-        background-color: red;
-      }
-      span {
-        display: block;
-        text-align: end;
-        color: $p-color;
-        font-size: 10.2px;
-        text-transform: uppercase;
-        font-family: Helvetica;
-        margin-top: 4px;
-      }
-    }
-  }
 }
 .lastNewsSection {
   margin-top: 1rem;
@@ -95,43 +62,9 @@
   gap: 1rem;
   @include respond(tab-port) {
     display: unset;
-    .lastNewsArticle {
-      margin-top: 1rem;
-      &:not(:last-child) {
-        padding-bottom: 1rem;
-        border-bottom: 1px solid $border;
-      }
-    }
-  }
-  .lastNewsArticle {
-    @include respond(tab-port) {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-      gap: 1rem;
-      .lastNewsMedia {
-        width: 50%;
-      }
-    }
-    h3 {
-      font-size: 1rem;
-      margin-top: 9px;
-    }
 
-    .lastNewsMedia {
-      .lastNewsPhoto {
-        width: 100%;
-        height: 10rem;
-        background-color: chartreuse;
-      }
-      .author {
-        font-size: 10px;
-        color: $p-color;
-        margin-bottom: 3px;
-        font-family: Helvetica;
-      }
-    }
   }
+
 }
 .newsText {
   @include newsText();
