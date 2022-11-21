@@ -3,10 +3,12 @@
 .Navfooter {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  margin-top: 9px;
-
-  ul {
-    flex: 1;
+  margin-top: 12px;
+  h3 {
+    font-size: 1rem;
+    font-family: unset;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-top: 10px;
   }
-  @include footerContent;
 }

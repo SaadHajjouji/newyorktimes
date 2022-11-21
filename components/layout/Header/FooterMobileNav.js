@@ -1,10 +1,10 @@
 import React from "react";
 import { FooterContent } from "../Footer/FooterContent";
 import classes from "./FooterMobileNav.module.scss";
-const FooterMobileNav = () => {
+const FooterMobileNav = ({setShowMobileNavigation}) => {
   return (
     <footer className={classes.Navfooter}>
-      <FooterContent />
+      <FooterContent setShowMobileNavigation={setShowMobileNavigation} />
     </footer>
   );
 };

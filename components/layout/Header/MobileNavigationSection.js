@@ -33,7 +33,7 @@ const MobileNavigationSection = ({
         </div>
         <section className={classes.MobileNavSection}>
           <SearchInput searchInputRef={searchInputRef2} />
-          <FooterMobileNav />
+          <FooterMobileNav setShowMobileNavigation={setShowMobileNavigation} />
         </section>
       </nav>
     </>
