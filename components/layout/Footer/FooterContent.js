@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getTitles from "../../../helpers/dataCenter";
 import Link from "next/link";
-export const FooterContent = ({}) => {
+export const FooterContent = ({ setShowMobileNavigation }) => {
   const [sections, setSections] = useState("");
   useEffect(() => {
     getTitles()

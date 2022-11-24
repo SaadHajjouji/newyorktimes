@@ -6,7 +6,7 @@ import CategoryPageLayout from "../../components/layout/categorypagelayout/Categ
 import CategoryPageMain from "../../components/categoryPage/CategoryPageMain";
 export default function Category(props) {
   const categoryData = props.data.results;
-  const category = props.category;
+  const category = props.category ? props.category : [];
 
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
 
@@ -33,12 +33,16 @@ export default function Category(props) {
 export async function getStaticProps(context) {
   const category = context.params.category;
   const baseUrl = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=EhgvtA3WE0sRHZeL6sQ8LPFZtn2CtGFz`;
-  const data = await axios.get(baseUrl);
+  let rr;
+  setTimeout(async () => {
+    rr = await axios.get(baseUrl);
+  }, 3000);
   return {
     props: {
-      data: data.data,
+      data: rr ? rr.data : [],
       category: category,
     },
+    revalidate: 2,
   };
 }
 export async function getStaticPaths() {

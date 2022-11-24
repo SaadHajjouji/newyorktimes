@@ -1,10 +1,35 @@
-import React from "react";
-import { FooterContent } from "../Footer/FooterContent";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import getTitles from "../../../helpers/dataCenter";
 import classes from "./FooterMobileNav.module.scss";
-const FooterMobileNav = ({setShowMobileNavigation}) => {
+const FooterMobileNav = ({ setShowMobileNavigation }) => {
+  const [sections, setSections] = useState("");
+  useEffect(() => {
+    getTitles()
+      .then((data) => {
+        setSections(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <footer className={classes.Navfooter}>
-      <FooterContent setShowMobileNavigation={setShowMobileNavigation} />
+      {sections == "" ? (
+        ""
+      ) : (
+        <>
+          {sections?.map((el) => (
+            <div key={el}>
+              <Link href={`/categories/${el}`}>
+                <a>
+                  <h3 onClick={() => setShowMobileNavigation(false)}>{el}</h3>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </>
+      )}
     </footer>
   );
 };

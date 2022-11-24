@@ -9,6 +9,7 @@ const MainPage = ({ content }) => {
     .filter((el) => el.section !== "crosswords")
     .filter((el) => el.multimedia)
     .filter((el) => el.section !== "opinion");
+
   const opinionData = content.results.filter((el) => el.section === "opinion");
 
   return (
