@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FooterContent } from "./FooterContent";
 import classes from "./FooterDesktop.module.scss";
 
-const DesktopFooter = () => {
+const DesktopFooter = ({sections,setLoading}) => {
   return (
     <footer className={classes.DesktopFooter}>
       <hr className={`${classes.line} ${classes.line1}`} />
@@ -16,7 +16,7 @@ const DesktopFooter = () => {
         height={28.5714}
       />
       <div className={classes.FooterWrapper}>
-        <FooterContent />
+        <FooterContent sections={sections} setLoading={setLoading}/>
       </div>
    </div>
     </footer>

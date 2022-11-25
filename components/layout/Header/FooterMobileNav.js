@@ -1,31 +1,22 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import getTitles from "../../../helpers/dataCenter";
+import { useRouter } from "next/router";
 import classes from "./FooterMobileNav.module.scss";
-const FooterMobileNav = ({ setShowMobileNavigation }) => {
-  const [sections, setSections] = useState("");
-  useEffect(() => {
-    getTitles()
-      .then((data) => {
-        setSections(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+import triggerLazyLoad from "../../../helpers/triggerLazyLoad";
+const FooterMobileNav = ({ setShowMobileNavigation, sections, setLoading }) => {
+  const router = useRouter();
+
   return (
     <footer className={classes.Navfooter}>
       {sections == "" ? (
         ""
       ) : (
         <>
-          {sections?.map((el) => (
-            <div key={el}>
-              <Link href={`/categories/${el}`}>
-                <a>
-                  <h3 onClick={() => setShowMobileNavigation(false)}>{el}</h3>
-                </a>
-              </Link>
+          {sections?.map((category) => (
+            <div key={category}>
+              <a onClick={() => triggerLazyLoad(setLoading, category, router)}>
+                <h3 onClick={() => setShowMobileNavigation(false)}>
+                  {category}
+                </h3>
+              </a>
             </div>
           ))}
         </>

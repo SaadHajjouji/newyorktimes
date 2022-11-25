@@ -9,6 +9,8 @@ const MainPageLayout = ({
   setshowSideNavDesktop,
   showMenuBtn,
   setShowMenuBtn,
+  sections,
+  setLoading,
 }) => {
   return (
     <Fragment>
@@ -17,10 +19,12 @@ const MainPageLayout = ({
         setshowSideNavDesktop={setshowSideNavDesktop}
         showMenuBtn={showMenuBtn}
         setShowMenuBtn={setShowMenuBtn}
+        sections={sections}
+        setLoading={setLoading}
       />
       <main>{children}</main>
-      <DesktopFooter />
-      <MobileFooter />
+      <DesktopFooter sections={sections} setLoading={setLoading} />
+      <MobileFooter sections={sections} setLoading={setLoading} />
     </Fragment>
   );
 };

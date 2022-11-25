@@ -9,6 +9,8 @@ const MobileNavigationSection = ({
   ShowMobileNavigation,
   setShowMobileNavigation,
   searchInputRef2,
+  sections,
+  setLoading,
 }) => {
   return (
     <>
@@ -33,7 +35,11 @@ const MobileNavigationSection = ({
         </div>
         <section className={classes.MobileNavSection}>
           <SearchInput searchInputRef={searchInputRef2} />
-          <FooterMobileNav setShowMobileNavigation={setShowMobileNavigation} />
+          <FooterMobileNav
+            sections={sections}
+            setShowMobileNavigation={setShowMobileNavigation}
+            setLoading={setLoading}
+          />
         </section>
       </nav>
     </>

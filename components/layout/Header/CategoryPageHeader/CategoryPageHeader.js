@@ -12,6 +12,7 @@ const CategoryPageHeader = ({
   showSideNavDesktop,
   setshowSideNavDesktop,
   category,
+  sections,
 }) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [ShowMobileNavigation, setShowMobileNavigation] = useState(false);
@@ -69,8 +70,12 @@ const CategoryPageHeader = ({
         searchInputRef2={searchInputRef2}
         ShowMobileNavigation={ShowMobileNavigation}
         setShowMobileNavigation={setShowMobileNavigation}
+        sections={sections}
       />
-      <SideNavigation showSideNavDesktop={showSideNavDesktop} />
+      <SideNavigation
+        showSideNavDesktop={showSideNavDesktop}
+        sections={sections}
+      />
     </header>
   );
 };

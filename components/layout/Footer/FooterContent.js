@@ -1,29 +1,18 @@
-import React, { useEffect, useState } from "react";
-import getTitles from "../../../helpers/dataCenter";
-import Link from "next/link";
-export const FooterContent = ({ setShowMobileNavigation }) => {
-  const [sections, setSections] = useState("");
-  useEffect(() => {
-    getTitles()
-      .then((data) => {
-        setSections(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+import { useRouter } from "next/router";
+import triggerLazyLoad from "../../../helpers/triggerLazyLoad";
+
+export const FooterContent = ({ sections, setLoading }) => {
+  const router = useRouter();
   if (sections == "") {
     return "";
   } else
     return (
       <>
-        {sections?.map((el) => (
-          <div key={el}>
-            <Link href={`/categories/${el}`}>
-              <a>
-                <h3>{el}</h3>
-              </a>
-            </Link>
+        {sections?.map((category) => (
+          <div key={category}>
+            <a onClick={() => triggerLazyLoad(setLoading, category, router)}>
+              <h3>{category}</h3>
+            </a>
           </div>
         ))}
       </>

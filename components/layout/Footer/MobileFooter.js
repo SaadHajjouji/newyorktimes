@@ -1,21 +1,9 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import classes from "./MobileFooter.module.scss";
-import getTitles from "../../../helpers/dataCenter";
-import Link from "next/link";
-const MobileFooter = () => {
-  const [sections, setSections] = useState("");
-
-  useEffect(() => {
-    getTitles()
-      .then((data) => {
-        setSections(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+import triggerLazyLoad from "../../../helpers/triggerLazyLoad";
+const MobileFooter = ({ sections, setLoading }) => {
+  const router = useRouter();
   if (sections == "") {
     return "";
   } else
@@ -30,11 +18,12 @@ const MobileFooter = () => {
 
         <div className={classes.MobileFooter}>
           <ul>
-            {sections?.map((el) => (
-              <li key={el}>
-                <Link href={`/categories/${el}`}>
-                  <a>{el}</a>
-                </Link>
+            {sections?.map((category) => (
+              <li
+                key={category}
+                onClick={() => triggerLazyLoad(setLoading, category, router)}
+              >
+                <a>{category}</a>
               </li>
             ))}
           </ul>

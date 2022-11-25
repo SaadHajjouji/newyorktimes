@@ -1,15 +1,21 @@
 import axios from "axios";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import getTitles from "../../helpers/dataCenter";
 import Head from "next/head";
 import CategoryPageLayout from "../../components/layout/categorypagelayout/CategoryPageLayout";
 import CategoryPageMain from "../../components/categoryPage/CategoryPageMain";
 export default function Category(props) {
   const categoryData = props.data.results;
-  const category = props.category ? props.category : [];
-
+  const category = props.category;
   const [showSideNavDesktop, setshowSideNavDesktop] = useState(false);
-
+  const [sections, setSections] = useState();
+  useEffect(() => {
+    fetchTitles();
+  }, []);
+  const fetchTitles = async () => {
+    const data = await getTitles();
+    setSections(data);
+  };
   return (
     <Fragment>
       <Head>
@@ -22,6 +28,7 @@ export default function Category(props) {
           showSideNavDesktop={showSideNavDesktop}
           setshowSideNavDesktop={setshowSideNavDesktop}
           category={category}
+          sections={sections}
         >
           <CategoryPageMain categoryData={categoryData} category={category} />
         </CategoryPageLayout>
@@ -33,13 +40,10 @@ export default function Category(props) {
 export async function getStaticProps(context) {
   const category = context.params.category;
   const baseUrl = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=EhgvtA3WE0sRHZeL6sQ8LPFZtn2CtGFz`;
-  let rr;
-  setTimeout(async () => {
-    rr = await axios.get(baseUrl);
-  }, 3000);
+  let data = await axios.get(baseUrl);
   return {
     props: {
-      data: rr ? rr.data : [],
+      data: data.data,
       category: category,
     },
     revalidate: 2,

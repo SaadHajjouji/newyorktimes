@@ -2,7 +2,6 @@ import React from "react";
 import ImageCaption from "../ImageCaption";
 import classes from "./MoreNewsArticle.module.scss";
 const MoreNewsArticle = ({ articleData }) => {
-  console.log(articleData);
   return (
     <article className={classes.moreNewsArticle}>
       <div className={classes.moreNewsMedia}>

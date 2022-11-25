@@ -10,7 +10,12 @@ import SideNavigation from "../SideNavigation";
 import MobileHeaderSection from "../MobileHeaderSection";
 import ShowInputButton from "../../../ui/ShowInputButton";
 import SubsLoginBtns from "../../../ui/SubsLoginBtns";
-const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
+const MainPageHeader = ({
+  showSideNavDesktop,
+  setshowSideNavDesktop,
+  sections,
+  setLoading,
+}) => {
   // state of search input visibility
   const [showSearchInput, setShowSearchInput] = useState(false);
   //input reference
@@ -80,7 +85,7 @@ const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
             </div>
           </div>
 
-       <SubsLoginBtns/>
+          <SubsLoginBtns />
         </div>
         <div className={classes.HeaderBottomSection}>
           <div className={classes.dateAndPaperToday}>
@@ -123,13 +128,19 @@ const MainPageHeader = ({ showSideNavDesktop, setshowSideNavDesktop }) => {
         todayDate={todayDate}
         setShowMobileNavigation={setShowMobileNavigation}
       />
-      <SideNavigation showSideNavDesktop={showSideNavDesktop} />
+      <SideNavigation
+        sections={sections}
+        showSideNavDesktop={showSideNavDesktop}
+        setLoading={setLoading}
+      />
       <MobileNavigationSection
         ShowMobileNavigation={ShowMobileNavigation}
         setShowMobileNavigation={setShowMobileNavigation}
         searchInputRef2={searchInputRef2}
+        sections={sections}
+        setLoading={setLoading}
       />
-      <Navbar />
+      <Navbar sections={sections} setLoading={setLoading} />
     </header>
   );
 };

@@ -1,18 +1,8 @@
 import classes from "./SideNavigation.module.scss";
-import getTitles from "../../../helpers/dataCenter";
-import { useEffect, useState } from "react";
-import Link from "next/link";
-const SideNavigation = ({ showSideNavDesktop }) => {
-  const [sections, setSections] = useState("");
-  useEffect(() => {
-    getTitles()
-      .then((data) => {
-        setSections(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+import triggerLazyLoad from "../../../helpers/triggerLazyLoad";
+import { useRouter } from "next/router";
+const SideNavigation = ({ showSideNavDesktop, sections, setLoading }) => {
+  const router = useRouter();
 
   return (
     <nav
@@ -24,11 +14,12 @@ const SideNavigation = ({ showSideNavDesktop }) => {
         ""
       ) : (
         <ul>
-          {sections?.map((el) => (
-            <li key={el}>
-              <Link href={`/categories/${el}`}>
-                <a>{el}</a>
-              </Link>
+          {sections?.map((category) => (
+            <li
+              key={category}
+              onClick={() => triggerLazyLoad(setLoading, category, router)}
+            >
+              <a>{category}</a>
             </li>
           ))}
         </ul>
