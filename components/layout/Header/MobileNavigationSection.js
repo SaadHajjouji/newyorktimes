@@ -11,6 +11,7 @@ const MobileNavigationSection = ({
   searchInputRef2,
   sections,
   setLoading,
+  
 }) => {
   return (
     <>
@@ -39,6 +40,7 @@ const MobileNavigationSection = ({
             sections={sections}
             setShowMobileNavigation={setShowMobileNavigation}
             setLoading={setLoading}
+          
           />
         </section>
       </nav>

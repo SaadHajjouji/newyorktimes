@@ -8,6 +8,7 @@ const CategoryPageLayout = ({
   setshowSideNavDesktop,
   category,
   sections,
+  setLoading,
 }) => {
   return (
     <Fragment>
@@ -16,10 +17,11 @@ const CategoryPageLayout = ({
         setshowSideNavDesktop={setshowSideNavDesktop}
         category={category}
         sections={sections}
+        setLoading={setLoading}
       />
       <main>{children}</main>
-      <DesktopFooter sections={sections} />
-      <MobileFooter sections={sections} />
+      <DesktopFooter sections={sections} setLoading={setLoading} />
+      <MobileFooter sections={sections} setLoading={setLoading} />
     </Fragment>
   );
 };
